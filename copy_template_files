@@ -1,0 +1,13 @@
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/testData
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/testData /adp/home/www_serv/htdocs/acgl/templates/en_US/testData
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/backup
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/backup /adp/home/www_serv/htdocs/acgl/templates/en_US/backup
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/explorer
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/explorer /adp/home/www_serv/htdocs/acgl/templates/en_US/explorer
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/qslogon
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/qslogon /adp/home/www_serv/htdocs/acgl/templates/en_US/qslogon
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/PCLTable
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/PCLTable /adp/home/www_serv/htdocs/acgl/templates/en_US/PCLTable
+rm -Rf /adp/home/www_serv/htdocs/acgl/templates/en_US/alter
+cp -R /adp/home/www_serv/htdocs/fstools/templates/en_US/alter /adp/home/www_serv/htdocs/acgl/templates/en_US/alter
+

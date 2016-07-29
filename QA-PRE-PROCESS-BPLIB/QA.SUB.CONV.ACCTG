@@ -1,0 +1,385 @@
+      SUBROUTINE QA.SUB.CONV.ACCTG(PROJ.MD.FILE,ACCTG.LOGON.ID,ERROR)
+      * 03/10/2006 * LLS * NEW MODULE
+      * COPYRIGHT 2006 ADP Dealer Services
+      * Based on: 07/07/1995 * njt * copied from AC.CONVERSION.AND.VALIDATION 
+      *                  * by Chuck Lewis
+      *           08/29/1996 * njt * QA930 NDOC.FIX. Copy all NDOC item types first!
+      *
+      * This subroutine converts the NDOC, PRIVLIB AR-FILE2 and
+      * SCHED-FILE2, and PROD-FILE and PRODUCTIVITY
+      *
+      **********************************************************
+      EQU AM TO CHAR(254)
+      EQU VM TO CHAR(253)
+      EQU SVM TO CHAR(252)
+      EQU TRUE TO 1
+      EQU FALSE TO 0
+      *
+      ***********************************
+      * MAIN 
+      ***********************************
+      *
+      *
+      GOSUB INIT
+      IF ERROR # "" THEN RETURN
+      GOSUB UPDATE.AR
+      IF ERROR # "" THEN RETURN
+      IF NDOC.FLAG THEN GOSUB UPDATE.MIS
+      IF PROD.FILE.FLAG THEN GOSUB UPDATE.SPY
+      RETURN; * to calling basic routine FS.GL.DUMP.QS.TAPE
+      * End of MAIN 
+      *
+      ***********************************
+      * SUBROUTINES
+      ***********************************
+      *
+      *
+      ***********************************
+      * INIT SUBROUTINE
+      ***********************************
+      *
+INIT: 
+      ERROR = ''
+      *
+      PRIVLIB.ID = ACCTG.LOGON.ID:"/PRIVLIB"
+      OPEN '', PRIVLIB.ID TO PRIVLIB.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no GL-PRIVLIB file."
+         RETURN
+      END
+      *
+      TITLE.ID = ACCTG.LOGON.ID:"/TITLE"
+      OPEN TITLE.ID TO TITLE.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no ":TITLE.ID:" file."
+         RETURN
+      END
+      *
+      GL.ACCT.MAP.ID = ACCTG.LOGON.ID:"/GL.ACCT.MAP"
+      OPEN GL.ACCT.MAP.ID TO GL.ACCT.MAP.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no ":GL.ACCT.MAP.ID:" file."
+         RETURN
+      END
+      *
+      NDOC.ID = ACCTG.LOGON.ID:"/NDOC"
+      OPEN NDOC.ID TO NDOC.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no ":NDOC.ID:" file."
+         RETURN
+      END
+      NDOC.FLAG = 1
+      PERFORM "COUNT ":NDOC.ID CAPTURING OUTPUT SETTING ERRMSG
+      IF ERRMSG<1,1> EQ "401" THEN
+         NDOC.FLAG = 0
+      END
+      GL.NDOC.ID = ACCTG.LOGON.ID:"/NDOC"
+      OPEN GL.NDOC.ID TO GL.NDOC.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no ":GL.NDOC.ID:" file."
+         RETURN
+      END
+      *
+      ACR.GL.ACCTS.ID = ACCTG.LOGON.ID:"/ACR-GL-ACCTS"
+      OPEN ACR.GL.ACCTS.ID TO ACR.GL.ACCTS.FILE ELSE
+         ERROR = "QA.SUB.CONV.ACCTG: There is no ":ACR.GL.ACCTS.ID:" file."
+         RETURN
+      END
+      *
+      PROD.FILE.FLAG = 1
+      PROD.FILE.ID = ACCTG.LOGON.ID:"/PROD-FILE"
+      OPEN PROD.FILE.ID TO PROD.FILE ELSE
+         PROD.FILE.FLAG = 0
+      END
+      IF PROD.FILE.FLAG THEN
+         OPEN PROD.FILE.ID TO GL.PROD.FILE ELSE
+            ERROR = "QA.SUB.CONV.ACCTG: There is no ":PROD.FILE.ID:" file."
+            RETURN
+         END
+      END
+      RETURN
+      * End of INIT subroutine
+      *
+      ***********************************
+      * UPDATE.AR SUBROUTINE
+      ***********************************
+      *
+UPDATE.AR: 
+      AR.FILE2.AC900 = ''
+      POSTING.DESC = "FINANCE CHARGE"
+      GOSUB GET.INT.ACCT
+      GOSUB GET.SCHED.FILE2
+      GOSUB UPDATE.AR.FILE2
+      RETURN
+      * End of UPDATE.AR subroutine
+      *
+      ***********************************
+      * GET.INT.ACCT SUBROUTINE
+      ***********************************
+      *
+GET.INT.ACCT: 
+      INT.ARRAY = ''
+      READ INT.ACCT FROM PRIVLIB.FILE,'INT-ACCT' THEN
+         * Reformat INT-ACCT into INT.ARRAY
+         NO.INT = DCOUNT(INT.ACCT,AM)
+         FOR INT.CNTR = 1 TO NO.INT
+            SCHED.CODE = FIELD(INT.ACCT<INT.CNTR>,' ',1)
+            AR.ACCT = FIELD(INT.ACCT<INT.CNTR>,' ',2)
+            FC.ACCT = FIELD(INT.ACCT<INT.CNTR>,' ',3)
+            FC.JRNL = FIELD(INT.ACCT<INT.CNTR>,' ',4)
+            INT.RATE = FIELD(INT.ACCT<INT.CNTR>,' ',5)
+            INT.ARRAY<1,INT.CNTR> = SCHED.CODE
+            INT.ARRAY<2,INT.CNTR> = AR.ACCT
+            INT.ARRAY<3,INT.CNTR> = FC.ACCT
+            INT.ARRAY<4,INT.CNTR> = FC.JRNL
+            INT.ARRAY<5,INT.CNTR> = INT.RATE
+         NEXT INT.CNTR
+      END
+      RETURN
+      * End of GET.INT.ACCT subroutine
+      *
+      ***********************************
+      * GET.SCHED.FILE2 SUBROUTINE
+      ***********************************
+      *
+GET.SCHED.FILE2: 
+      * Reformat SCHED.FILE2 into SCHED.ARRAY
+      * attr 1 = schec code
+      * attr 2 = attibute in SCHED-FILE2
+      SCHED.ARRAY = ''
+      READ SCHED.FILE2 FROM PRIVLIB.FILE,'SCHED-FILE2' THEN
+         NO.SCHED = DCOUNT(SCHED.FILE2,AM)
+         FOR SCHED.CNTR = 1 TO NO.SCHED
+            SCHED.LINE = SCHED.FILE2<SCHED.CNTR>
+            SCHED.PROC = FIELD(SCHED.LINE,' ',1)
+            IF SCHED.PROC[1,6] = 'SCH-AR' THEN
+               ATB.PROC = FIELD(SCHED.LINE,' ',1)
+               SCHED.FILE.CODE = FIELD(SCHED.LINE,' ',3)
+               SCHED.ARRAY<1,-1> = SCHED.FILE.CODE
+               SCHED.ARRAY<2,-1> = SCHED.CNTR
+               SCHED.ARRAY<3,-1> = ATB.PROC
+            END
+         NEXT SCHED.CNTR
+      END
+      RETURN
+      * End of GET.SCHED.FILE2 subroutine
+      *
+      ***********************************
+      * UPDATE.AR.FILE2 SUBROUTINE
+      ***********************************
+      *
+UPDATE.AR.FILE2: 
+      READ AR.FILE2 FROM PRIVLIB.FILE,'AR-FILE2' ELSE
+         AR.FILE2 = ''
+      END
+      AR.STATUS = ''
+      NO.ARFILE2 = DCOUNT(AR.FILE2,AM)
+      FOR AR.CNTR = 1 TO NO.ARFILE2
+         AR.LINE = TRIM(AR.FILE2<AR.CNTR>)
+         FLD1 = FIELD(AR.LINE,' ',1)
+         FLD2 = FIELD(AR.LINE,' ',2)
+         SCHED.CODE = FIELD(AR.LINE,' ',3)
+         FLD4 = FIELD(AR.LINE,' ',4)
+         FLD5 = FIELD(AR.LINE,' ',5)
+         FLD8 = FIELD(AR.LINE,' ',8)
+         IF FLD1 NE '.' THEN
+            LOCATE SCHED.CODE IN INT.ARRAY<1> SETTING POS ELSE
+               PRINT "There is no INT-ACCT attribute for SCHED CODE ":SCHED.CODE
+            END
+            *
+            * Get add'l fields for ATB
+            ATB.FIELDS = ''
+            FLD.CNTR = 18
+            LOOP
+               FLD.CNTR = FLD.CNTR + 1
+               PRINT.FIELD = FIELD(AR.LINE,' ',FLD.CNTR)
+            UNTIL PRINT.FIELD = '' DO
+               ATB.FIELDS<1,-1> = PRINT.FIELD
+            REPEAT
+            *
+            * Get add'l fields for sched report
+            LOCATE SCHED.CODE IN SCHED.ARRAY<1> SETTING SCHED.POS ELSE
+               PRINT "There is no SCHED-FILE2 attribute for SCHED CODE ":SCHED.CODE
+            END
+            ATB.PROC = SCHED.ARRAY<3,SCHED.POS>
+            SCHED.POS = SCHED.ARRAY<2,SCHED.POS>
+            SCHED.LINE = TRIM(SCHED.FILE2<SCHED.POS>)
+            SCHED.FIELDS = ''
+            FLD.CNTR = 18
+            LOOP
+               FLD.CNTR = FLD.CNTR + 1
+               PRINT.FIELD = FIELD(SCHED.LINE,' ',FLD.CNTR)
+            UNTIL PRINT.FIELD = '' DO
+               SCHED.FIELDS<1,-1> = PRINT.FIELD
+            REPEAT
+            *
+            READ TITLE FROM TITLE.FILE,'S*':SCHED.CODE ELSE
+               ERROR = "QA.SUB.CONV.ACCTG: TITLE ":SCHED.CODE:" MISSING ON ":ACCTG.LOGON.ID:"."
+               RETURN
+            END
+            * Convert AR account
+            IF POS LE NO.INT THEN
+               XREF.ACCT = INT.ARRAY<2,POS>
+               REF.FILE = 'PRIVLIB'
+               REF.ID = 'INT-ACCT'
+               INT.RATE = INT.ARRAY<5,POS>
+               AR.CO = "co#"
+               NEW.AR.ACCT = XREF.ACCT
+               FC.ACCT.CO = AR.CO
+               NEW.FC.ACCT = INT.ARRAY<3,POS>
+               FC.CO = AR.CO
+               NEW.FC.JRNL = INT.ARRAY<4,POS>
+               *
+               ACR.GL.ACCTS = ''
+               ACR.GL.ACCTS<1> = TITLE<1>
+               ACR.GL.ACCTS<2> = AR.CO
+               ACR.GL.ACCTS<3> = NEW.AR.ACCT
+               ACR.GL.ACCTS<4> = POSTING.DESC
+               ACR.GL.ACCTS<5> = SCHED.FIELDS
+               ACR.GL.ACCTS<6> = ATB.FIELDS
+               *               ACR.GL.ACCTS<7> = AR.CO
+               ACR.GL.ACCTS<8> = FC.CO
+               ACR.GL.ACCTS<9> = NEW.FC.JRNL
+               ACR.GL.ACCTS<10> = POSTING.DESC
+               ACR.GL.ACCTS<11> = FC.ACCT.CO
+               ACR.GL.ACCTS<12> = NEW.FC.ACCT
+               ACR.GL.ACCTS<13> = POSTING.DESC
+               ACR.GL.ACCTS<14> = ATB.PROC
+               WRITE ACR.GL.ACCTS ON ACR.GL.ACCTS.FILE,SCHED.CODE
+            END
+         END
+         LINE = FLD1 : ' ' : FLD2 : ' ' : SCHED.CODE : ' '
+         LINE = LINE : FLD4 : ' ' : FLD5 : ' ' : FLD8
+         IF FLD1 NE '.' THEN LINE = LINE : ' 1 0' ELSE LINE = FLD1
+         AR.FILE2.AC900<AR.CNTR> = LINE
+      NEXT AR.CNTR
+      *
+      * Update AR-FILE2
+      IF AR.FILE2 NE '' THEN WRITE AR.FILE2.AC900 ON PRIVLIB.FILE,'AR-FILE2'
+      RETURN
+      * End of UPDATE.AR.FILE2 subroutine
+      *
+      ***********************************
+      * UPDATE.MIS SUBROUTINE
+      ***********************************
+      *
+UPDATE.MIS: 
+      * NDOC.FIX begin
+      *      DATA "(":GL.NDOC.ID
+      *      PERFORM "COPY ":NDOC.ID:' *'
+      * NDOC.FIX end
+      COMMAND = 'SELECT ':ACCTG.LOGON.ID:'/NDOC WITH 21 "1"'
+      PERFORM COMMAND RTNLIST CAPTURING OUTPUT
+      LOOP WHILE READNEXT ID DO
+         READ NDOC FROM NDOC.FILE,ID THEN
+            ACCT.LINE = NDOC<34>
+            NO.ACCT = DCOUNT(ACCT.LINE,VM)
+            NEW.ACCT.LINE = ''
+            FOR ACCT.CNTR = 1 TO NO.ACCT
+               XREF.ACCT = ACCT.LINE<1,ACCT.CNTR>
+               NEW.ACCT.LINE<1,-1> = "co#*":XREF.ACCT
+            NEXT ACCT.CNTR
+            NDOC<34> = NEW.ACCT.LINE
+            WRITE NDOC ON GL.NDOC.FILE,ID
+         END
+      REPEAT
+      RETURN
+      * End of UPDATE.MIS subroutine
+      *
+      ***********************************
+      * UPDATE.SPY SUBROUTINE
+      ***********************************
+      *
+UPDATE.SPY: 
+      READ PRODUCTIVITY FROM PRIVLIB.FILE,'PRODUCTIVITY' THEN
+         NEW.JRNL.LINE = ''
+         JRNL.LINE = PRODUCTIVITY<1>
+         N = '0'
+         LOOP
+            N = N + 1
+            XREF.JRNL = FIELD(JRNL.LINE,' ',N)
+         UNTIL XREF.JRNL = '' DO
+            IF NEW.JRNL.LINE = '' THEN NEW.JRNL.LINE = "co#*":XREF.JRNL ELSE NEW.JRNL.LINE = NEW.JRNL.LINE:" ":"co#*":XREF.JRNL
+         REPEAT
+         PRODUCTIVITY<1> = NEW.JRNL.LINE
+         WRITE PRODUCTIVITY ON PRIVLIB.FILE,'PRODUCTIVITY'
+      END
+      *
+      ALL.WILD = FALSE
+      CO = ''
+      PERFORM 'SELECT ':ACCTG.LOGON.ID:'/PROD-FILE # "PROD-FILE" ' RTNLIST CAPTURING OUTPUT
+      LOOP WHILE READNEXT ID DO
+         READ PROD FROM PROD.FILE,ID THEN
+            PROD.OUT = ''
+            IF PROD<1,1>[1,1] = 'D' THEN
+               XREF.JRNL = FIELD(PROD<1>,'D',2)
+               IF XREF.JRNL NE '' THEN
+                  REF.ID = ID
+                  PROD<1> = 'D':"co#*":XREF.JRNL
+               END
+            END
+            *
+            PROD.OUT<1> = PROD<1>
+            PROD.OUT<2> = PROD<2>
+            ATTR.NO = DCOUNT(PROD,AM)
+            FOR ATTR.CNT = 3 TO ATTR.NO
+               LOOP
+                  X = INDEX(PROD<ATTR.CNT>,'G3-0',1)
+               UNTIL X = 0 DO
+                  PART1 = PROD<ATTR.CNT>[1,X-1]
+                  PART2 = PROD<ATTR.CNT>[X+4,999]
+                  PROD<ATTR.CNT> = PART1:'G6-0':PART2
+               REPEAT
+               *
+               LOOP
+                  X = INDEX(PROD<ATTR.CNT>,'G3-1',1)
+               UNTIL X = 0 DO
+                  PART1 = PROD<ATTR.CNT>[1,X-1]
+                  PART2 = PROD<ATTR.CNT>[X+4,999]
+                  PROD<ATTR.CNT> = PART1:'G6-1':PART2
+               REPEAT
+               * Convert acct to co*acct
+               LINE = PROD<ATTR.CNT>
+               OUT = ''
+               ALL.WILD = FALSE
+               FLD.NO = 0
+               LOOP
+                  FLD.NO = FLD.NO + 1
+                  VALUE= FIELD(LINE,';',FLD.NO)
+               UNTIL VALUE = '' DO
+                  IF VALUE[1,1] = 'V' THEN
+                     VALUE = VALUE[2,999]
+                     LEN.VALUE = LEN(VALUE)
+                     CO = "co#"
+                     ACCOUNT = VALUE
+                     *
+                     ALL.WILD = TRUE
+                     IF CO[1,1] NE '^' THEN ALL.WILD = FALSE
+                     IF ALL.WILD THEN
+                        PART1 = FIELD(LINE,'V',1)
+                        X = INDEX(LINE,'V',1)
+                        PART2 = LINE[X,999]
+                        X = INDEX(PART2,';',1)
+                        PART2 = PART2[X,999]
+                        OUT = PART1:'V':"co#":"*":ACCOUNT:PART2
+                        PROD.OUT<-1> = OUT
+                     END ELSE
+                        VALUE = 'V':CO:'*':ACCOUNT
+                     END
+                  END
+                  IF NOT(ALL.WILD) THEN
+                     IF OUT NE '' THEN OUT = OUT :";"
+                     OUT = OUT : VALUE
+                  END
+               REPEAT
+               IF OUT = '' THEN OUT = LINE
+               IF NOT(ALL.WILD) THEN PROD.OUT<-1> = OUT
+               * END PROD MOD
+            NEXT ATTR.CNT
+            *
+            XREF.JRNL = ID
+            REF.ID = ID
+            NEW.ID = "co#":"*":XREF.JRNL
+            WRITE PROD.OUT ON GL.PROD.FILE,NEW.ID
+         END
+      REPEAT
+      RETURN
+      * End of UPDATE.SPY subroutine
+      END
+      
+      

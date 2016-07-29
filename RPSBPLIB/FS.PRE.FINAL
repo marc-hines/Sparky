@@ -1,0 +1,273 @@
+      * PROGRAM FS.PRE.FINAL
+      * Neal Tollisen
+      * 10/11/1990
+      *
+      * This routine prompts for FS and QA releases, then builds
+      * a file called STD-PCL-CODES, with one item for each
+      * FS master. It also creates FS-CHECK-SUM records for each
+      * master.
+      *
+      * 02/26/2004 * rlw * removed prompts and ported to RPS
+      *                  * from bolo
+      * 04/01/2004 * rlw * removed the files STD-PCL-CODES and
+      *                  * FS-CHECK-SUM as they were only holding files
+      *
+      **************************
+      *  INITIALIZE
+      **************************
+      AM = CHAR(254)
+      ACCT.TYPES = "A":AM:"C":AM:"D":AM:"E":AM:"I":AM:"L":AM:"M":AM:"P":AM:"S":AM:"V"
+      FALSE = 0
+      TRUE = 1
+      MY.ACCOUNT = SYSTEM(19)
+      IF MY.ACCOUNT # 'REL-PROD-OP' THEN
+         PRINT; PRINT 'This routine can only be executed from the REL-PROD-OP account.'
+         STOP
+      END
+      MY.PORT = SYSTEM(18)
+      OPEN 'SYSTEM' TO SYSTEM ELSE
+         * Ensure this program is executed from REL-PROD-OP only
+         PRINT "FS.PRE.FINAL: Unable to open the SYSTEM file."
+         STOP
+      END
+      OPEN 'MD' TO MD.FILE ELSE
+         PRINT "FS.PRE.FINAL: Unable to open the MD file."
+         STOP
+      END
+      *************************
+      * PROMPTING
+      *************************
+      PRINT;PRINT"This routine builds the FS-CHECK-SUM and STD-PCL-CODES"
+      PRINT "items for the Financial Statement masters."
+      PRINT
+      * Prompt for the QA project to use
+      ANS.FLAG = 0
+      LOOP UNTIL ANS.FLAG DO
+         PRINT
+         PRINT "Enter the Quick-Start project (i.e., QA6J0)...":
+         INPUT QA.PROJECT
+         IF QA.PROJECT = '' THEN PRINT "No updating done.";STOP
+         READ TEST FROM SYSTEM,QA.PROJECT:"-LOGON" THEN
+            ANS.FLAG = 1
+         END ELSE
+            PRINT QA.PROJECT:" is not a valid project on RPS."
+            PRINT "It may be that you need to import ":QA.PROJECT:" or you "
+            PRINT "mistyped the Quick-Start project ":QA.PROJECT
+         END
+      REPEAT
+      * Prompt for the FS project
+      ANS.FLAG = 0
+      LOOP UNTIL ANS.FLAG DO
+         PRINT;PRINT "Enter the financial statement project to update (i.e., FS980)...":
+         INPUT FS.PROJECT
+         IF FS.PROJECT = '' THEN PRINT "No updating done.";STOP
+         READ TEST FROM SYSTEM,FS.PROJECT:"-LOGON" THEN
+            ANS.FLAG = 1
+         END ELSE
+            PRINT FS.PROJECT:" is not a valid project on RPS."
+            PRINT "It may be that you need to import ":FS.PROJECT:" or you "
+            PRINT "mistyped the financial statement's project ":FS.PROJECT
+         END
+      REPEAT
+      PRINT
+      PRINT "The masters on the ":FS.PROJECT:"-LOGON account will have their"
+      PRINT "FS-CHECK-SUM and STD-PCL-CODES items updated using the "
+      PRINT QA.PROJECT:"-LOGON account's files."
+      PRINT
+      ***************************
+      ****** OPEN FILES SECTION
+      ***************************
+      TEMP.REL = FS.PROJECT
+      TEMP.FILE = 'FSLIB'
+      GOSUB BUILD.Q.POINTER
+      OPEN Q.PTR TO FSLIB ELSE
+         PRINT "FS.PRE.FINAL: There is no FSLIB file in ":FS.PROJECT:"-LOGON account."
+         STOP
+      END
+      DATE.REC = FS.PROJECT:" ;  ":OCONV(DATE(),"D2"):" ; HAS FIXES THRU 9999"
+      ************************************
+      **  PROCESS ALL MASTERS
+      ************************************
+      READ FS.MASTERS FROM FSLIB, "FS-MASTERS" ELSE
+         PRINT "FS.PRE.FINAL: There is no FS-MASTERS file in ":FS.PROJECT:"-LOGON account."
+         STOP
+      END
+      CNT = DCOUNT(FS.MASTERS,AM)
+      PRINT TIMEDATE()
+      FOR MASTER.NUM = 1 TO CNT
+         MASTER.NAME = FS.MASTERS<MASTER.NUM>
+         IF MASTER.NAME = "." THEN
+            PRINT TIMEDATE()
+            PRINT "FS.PRE.FINAL has completed processing."
+            GO OFFICIAL.END
+         END
+         IF MASTER.NAME[1,2] # "FS" THEN
+            MASTER.NAME = FIELD(TRIM(MASTER.NAME)," ",3); * strip for 2gen
+         END
+         TEMP.FILE = MASTER.NAME
+         GOSUB BUILD.Q.POINTER
+         GOSUB BUILD.STD.PCL.CODES
+         FILE.FLAG = 1
+         GOSUB BUILD.CHECK.SUMS
+         IF FILE.FLAG THEN
+            GOSUB WRITE.DICT.MASTER.ITEMS
+         END
+         DELETE MD.FILE, 'FS.Q.POINTER'
+      NEXT MASTER.NUM
+OFFICIAL.END:
+      * Be sure to remove the Q pointer
+      DELETE MD.FILE, Q.PTR
+      DELETE MD.FILE, 'QS.Q.POINTER'
+      DELETE MD.FILE, 'FS.Q.POINTER'
+      PRINT TIMEDATE()
+      STOP
+      *
+      * End of MAIN program
+      *
+      *******************************************
+      ** BUILD.STD.PCL.CODES SUBROUTINE
+      *******************************************
+BUILD.STD.PCL.CODES:
+      * This subroutine opens ACCT for Master
+      * then builds the STD-PCL-CODES file
+      IF MASTER.NAME # "FS-GM[FACTS]-MASTER" AND MASTER.NAME <> "FS-[FACTS]-MASTER" THEN
+         QS.NAME = "QS-":FIELD(MASTER.NAME,"-",2)
+         STMT.NO = 1
+      END ELSE
+         IF MASTER.NAME EQ "FS-GM[FACTS]-MASTER" THEN
+            QS.NAME = "QS-GM"
+         END ELSE
+            QS.NAME = "QS-GMCAN"
+         END
+         STMT.NO = 2
+      END
+      PRINT MASTER.NAME
+      READ.ERR = 0
+      Q.POINTER = "Q"
+      Q.POINTER<2> = QA.PROJECT:"-LOGON"
+      Q.POINTER<3> = QS.NAME:"/ACCT"
+      WRITE Q.POINTER ON MD.FILE,'QS.Q.POINTER'
+      OPEN 'QS.Q.POINTER' TO QS.ACCT ELSE READ.ERR = 1
+      IF NOT(READ.ERR) THEN
+         STD.PCL.CODES = ''
+         SELECT QS.ACCT
+         NEXT.ID = 1
+         LOOP READNEXT ID ELSE NEXT.ID = 0 WHILE NEXT.ID DO
+            RD.ERR = 0
+            READ AC.REC FROM QS.ACCT,ID ELSE RD.ERR = 1
+            IF NOT(RD.ERR) THEN
+               ACCT.TYPE = FIELD(AC.REC<4>," ",3)
+               PCL = AC.REC<53,STMT.NO>
+               IF PCL#'' THEN
+                  IF ACCT.TYPE = "N" THEN ACCT.TYPE = "M"
+                  IF ACCT.TYPE = "O" THEN ACCT.TYPE = "L"
+                  LOCATE ACCT.TYPE IN ACCT.TYPES SETTING POS ELSE POS = 0
+                  IF POS THEN
+                     LOCATE PCL IN STD.PCL.CODES<POS> BY 'AL' SETTING POS1 ELSE NULL
+                     INS PCL BEFORE STD.PCL.CODES<POS,POS1>
+                  END ELSE
+                     PRINT "Invalid ACCT code '":ACCT.TYPE:"' in account '":ID:"' on  '":QS.NAME
+                  END
+               END
+            END
+         REPEAT
+      END
+      RETURN
+      *
+      *************************************************
+      ** BUILD.CHECK.SUMS SUBROUTINE
+      *************************************************
+BUILD.CHECK.SUMS:
+      * This subroutine calculates and writes the the CHECK-SUMS
+      Q.POINTER = "Q"
+      Q.POINTER<2> = FS.PROJECT:"-LOGON"
+      Q.POINTER<3> = MASTER.NAME
+      WRITE Q.POINTER ON MD.FILE,'FS.Q.POINTER'
+      OPEN 'DICT','FS.Q.POINTER' TO D.FILE.MASTER ELSE  
+         PRINT 'DICT ':MASTER.NAME:' does not have a Q-pointer.'
+         FILE.FLAG = 0
+         RETURN
+      END
+      OPEN 'FS.Q.POINTER' TO FILE.MASTER ELSE  
+         PRINT 'DATA ':MASTER.NAME:' does not have a Q-pointer.'
+         FILE.FLAG = 0
+         RETURN
+      END
+      D.CHK.SUM = ''
+      CHK.SUM = ''
+      SELECT D.FILE.MASTER
+      NEXT.ID = TRUE
+      LOOP READNEXT ID ELSE NEXT.ID = FALSE WHILE NEXT.ID DO
+         ID.2 = ID[1,2];ID.3 = ID[1,3]
+         ID.TEST = (ID.2 MATCHES "1N1A" OR ID.3 MATCHES "2N1A")
+         IF ID.TEST THEN
+            RD.ERR = FALSE
+            READ FS.REC FROM D.FILE.MASTER,ID ELSE RD.ERR = TRUE
+            IF NOT(RD.ERR) THEN
+               ATTB1.TEST=NOT(INDEX("A/S/X",FS.REC<1>,1))
+               IF ATTB1.TEST THEN
+                  AM.CNT = COUNT(FS.REC,AM)+1
+                  FOR AM.NUM = 1 TO AM.CNT
+                     FS.WORK = FS.REC<AM.NUM>
+                     LN.CNT = LEN(FS.WORK)
+                     IF LN.CNT THEN
+                        FOR LN.NUM = 1 TO LN.CNT
+                           D.CHK.SUM=D.CHK.SUM+(SEQ(FS.WORK[LN.NUM,1])-31)
+                        NEXT LN.NUM
+                     END
+                  NEXT AM.NUM
+               END
+            END
+         END
+      REPEAT
+      *****************************************
+      *  CALCULATE DATA FS-MASTER CHECK-SUM   *
+      *****************************************
+      SELECT FILE.MASTER
+      NEXT.ID = TRUE
+      LOOP READNEXT ID ELSE NEXT.ID = FALSE WHILE NEXT.ID DO
+         RD.ERR = FALSE
+         READ FS.REC FROM FILE.MASTER,ID ELSE RD.ERR = TRUE
+         IF NOT(RD.ERR) THEN
+            AM.CNT = COUNT(FS.REC,AM)+1
+            FOR AM.NUM = 1 TO AM.CNT
+               FS.WORK = FS.REC<AM.NUM>
+               LN.CNT = LEN(FS.WORK)
+               IF LN.CNT THEN
+                  FOR LN.NUM = 1 TO LN.CNT
+                     CHK.SUM = CHK.SUM + (SEQ(FS.WORK[LN.NUM,1])-31)
+                  NEXT LN.NUM
+               END
+            NEXT AM.NUM
+         END
+      REPEAT
+      *
+      * Write the CHECK-SUM record to DICT master
+      SUM.REC = D.CHK.SUM
+      SUM.REC<2> = CHK.SUM
+      RETURN
+      * end of BUILD.CHECK.SUMS subroutine
+      *
+      *******************************************
+      * WRITE.DICT.MASTER.ITEMS SUBROUTINE
+      *******************************************
+WRITE.DICT.MASTER.ITEMS:
+      WRITE SUM.REC ON D.FILE.MASTER,'CHECK-SUM'
+      WRITE STD.PCL.CODES ON D.FILE.MASTER,'STD-PCL-CODES'
+      WRITE DATE.REC ON D.FILE.MASTER,'DATE'
+      RETURN
+      * end of WRITE.DICT.MASTER.ITEMS subroutine
+      *
+      ******************************************
+      * BUILD THE Q POINTER SUBROUTINE
+      ******************************************
+BUILD.Q.POINTER:
+      Q.POINTER = "Q"
+      Q.POINTER<2> = TEMP.REL:"-LOGON"
+      Q.POINTER<3> = TEMP.FILE
+      Q.PTR = "FS*":MY.PORT
+      WRITE Q.POINTER ON MD.FILE,Q.PTR
+      RETURN
+      * End of BUILD.Q.POINTER subroutine
+      ******
+      END

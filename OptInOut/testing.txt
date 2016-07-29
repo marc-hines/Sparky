@@ -1,0 +1,9 @@
+SELECT * FROM opt_in_out WHERE source_bus_unit=166292000000000004 AND phone_nbr='5031231234' AND opt_type='SMSFO';
+
+http://pinball:8110/acgl/acct/dataservices/opt_in_out_smsfo.php?PageID=b0c66222bbf34b_GCM2&json_data={"action":"read","phone_nbr":"5031231234"}
+
+http://pinball:8110/acgl/acct/dataservices/opt_in_out_smsfo.php?PageID=31a854d61c3b4c_GCH&json_data={"action":"read","phone_nbr":"5035102972"}
+
+
+http://pinball:8110/acgl/acct/dataservices/opt_in_out_smsfo.php?PageID=b0c66222bbf34b_GCM2&json_data={"action":"update","customer_nbr":"2005","phone_nbr":"5031231234","opt_in_sw":true,"audit_comment":"this is an A\\B audit 'comment'"}
+

@@ -1,0 +1,201 @@
+SUBROUTINE FS.SUB.BURST.ONE.MASTER( UnixFullFilePath, ErrorList )
+* Copyright 2015 CDK Global LLC. All rights reserved.
+* FS9M0 - Feb 2015 - Marc Hines
+*
+* This program takes a 'compacted' linux text file that holds
+* a complete master file and 'bursts' to out to the DICT and
+* DATA level items in the target FS-[XYZ]-MASTER file.
+*
+  EQU AM   TO CHAR(254) ;* Attribute mark.
+  EQU VM   TO CHAR(253) ;* Value mark.
+  EQU SVM  TO CHAR(252) ;* Sub-value mark.
+  EQU TM   TO CHAR(251) ;* Text mark.
+  EQU FF   TO CHAR(12)  ;* Form Feed
+  EQU TAB  TO CHAR(9)   ;* Tab Character
+*
+  EQU TRUE  TO 1
+  EQU FALSE TO 0
+*
+  ErrorList = ''
+  StarCount = 0
+  TextBlockLength = 500
+  TextBlockStart = 0
+  OldCleanTextBlock = ''
+*
+  GOSUB OPEN.CORA.FILES
+  GOSUB CLEAR.CORA.FILES
+  GOSUB UPDATE.CORA.FILES
+*
+  RETURN
+*
+******************
+OPEN.CORA.FILES:
+******************
+*
+  PERFORM 'SYS head -20 ':UnixFullFilePath CAPTURING DirtyTextBlock
+  GOSUB CLEAN.UP.TEXT.BLOCK
+  FsMasterFileName = FIELD(CleanTextBlock<1>[12,999],'>',1)
+  PRINT 'Target File Name: ':FsMasterFileName
+FsMasterFileName = 'FS-[MWH]-MASTER'
+*
+  OPEN 'DICT', FsMasterFileName TO FS.MASTER.DICT.FILE ELSE
+    ErrorList = 'Unable to open DICT ':FsMasterFileName
+    RETURN
+  END
+*
+  OPEN FsMasterFileName TO FS.MASTER.DATA.FILE ELSE
+    ErrorList = 'Unable to open DATA ':FsMasterFileName
+    RETURN
+  END
+*
+  RETURN
+*
+******************
+CLEAR.CORA.FILES:
+******************
+*
+* We begin by clearing the DICT and DATA levels of the target
+* FS-[ABC]-MASTER file so only items in the compacted linux
+* text file will be found in the FS-[ABC]-MASTER once we are
+* done processing.
+*
+  CLEARFILE FS.MASTER.DICT.FILE
+  CLEARFILE FS.MASTER.DATA.FILE
+*
+  RETURN
+*
+******************
+UPDATE.CORA.FILES:
+******************
+*
+* We work through the linux text file and burst out
+* records to the DICT and DATA levels of the
+* FS-[ABC]-MASTER file.
+*
+  GOSUB CLEAR.NEW.RECORD
+  NewFilePtr = FS.MASTER.DICT.FILE
+*
+  GOSUB GET.BLOCK.OF.TEXT
+  FileEndFound = FALSE
+*
+  LOOP WHILE (CleanTextBlock NE '' AND NOT(FileEndFound)) DO 
+    BLockLength = DCOUNT(CleanTextBlock,AM)
+    FOR I = 1 TO BLockLength
+      CleanLine = CleanTextBlock<I>
+      BEGIN CASE
+        CASE CleanLine[1,8] EQ '<<<DICT:'
+          *
+          * Dictionary items begin with <<<DICT:ItemID>>>
+          *
+          GOSUB WRITE.NEW.RECORD
+          GOSUB CLEAR.NEW.RECORD
+          NewItemId = FIELD(CleanLine,':',2)
+          NewFilePtr = FS.MASTER.DICT.FILE
+        CASE CleanLine[1,8] EQ '<<<DATA:'
+          *
+          * Data level items begin with <<<DATA:ItemID>>>
+          *
+          GOSUB WRITE.NEW.RECORD
+          GOSUB CLEAR.NEW.RECORD
+          NewItemId = FIELD(CleanLine,':',2)
+          NewFilePtr = FS.MASTER.DATA.FILE
+        CASE CleanLine EQ '<<<<END>>>>'
+          *
+          * When we see and <<<<END>>>>, we know we have
+          * reached the end of the master.
+          *
+          GOSUB WRITE.NEW.RECORD
+          FileEndFound = TRUE
+        CASE 1
+          *
+          * Not a special line - so this line is the
+          * next row of the new record.
+          *
+          NewRecord<NewRecPos> = CleanLine
+          NewRecPos = NewRecPos + 1
+      END CASE
+    NEXT I
+    GOSUB GET.BLOCK.OF.TEXT
+  REPEAT
+*
+  RETURN
+*
+******************
+WRITE.NEW.RECORD:
+******************
+*
+  IF NewItemId NE '' THEN
+    WRITE NewRecord ON NewFilePtr, NewItemId
+  END
+*
+  RETURN
+*
+******************
+CLEAR.NEW.RECORD:
+******************
+*
+* This clears/resets the three variables used to create each new
+* pick record.  Be sure to do this *BEFORE* you set NewItemId.
+*
+  NewItemId = ''
+  NewRecord = ''
+  NewRecPos = 1
+*
+  RETURN
+*
+******************
+GET.BLOCK.OF.TEXT:
+******************
+*
+* We are using a combination of the linux 'head' and 'tail' commands to
+* grab a chunk of text from the linux text file with the compacted
+* FS-[ABC]-MASTER data.  This is orders of magnitude faster than using
+* a CoRa dir-view and trying to read a very large text file.
+*
+  TextBlockStart = TextBlockStart + TextBlockLength
+  PERFORM 'SYS head -':TextBlockStart:' ':UnixFullFilePath:' | tail -n':TextBlockLength CAPTURING DirtyTextBlock
+*
+  GOSUB CLEAN.UP.TEXT.BLOCK
+*
+* The combination of the linux 'head' and 'tail' commands has
+* a flaw - once we get past the end of the text file we keep 
+* being given the same block of text over and over. Once a block
+* repeats, we know we are done and create an empty text block
+* ourselves.
+* 
+  IF OldCleanTextBlock EQ CleanTextBlock THEN
+    CleanTextBlock = ''
+  END
+  OldCleanTextBlock = CleanTextBlock
+*
+  RETURN
+*
+******************
+CLEAN.UP.TEXT.BLOCK:
+******************
+*
+  CleanTextBlock = CHANGE(DirtyTextBlock, '&#253;', VM)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#252;', SVM)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#251;', TM)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#12;', FF)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#012;', FF)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#9;', TAB)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#09;', TAB)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#009;', TAB)
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#39;', "'")
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#039;', "'")
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#34;', '"')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#034;', '"')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#36;', '$')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#036;', '$')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#33;', '!')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#033;', '!')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#38;', '&')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#038;', '&')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#59;', ';')
+  CleanTextBlock = CHANGE(CleanTextBlock, '&#059;', ';')
+  CleanTextBlock = CHANGE(CleanTextBlock, '!AMP!', '&amp;')
+*
+  RETURN
+*
+END

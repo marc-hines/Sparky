@@ -1,0 +1,225 @@
+SUBROUTINE FS.SUB.HTML.DECODE( DirtyString, CleanString )
+* Copyright 2015 CDK Global LLC. All rights reserved.
+* FS9M0 - Feb 2015 - Marc Hines
+*
+**********************************************************
+*
+  CleanString = ''
+  WorkingString = DirtyString
+
+  * Convert to lower case before doing case
+
+  BEGIN CASE
+    CASE Entity EQ "&tab;" OR
+         Entity EQ "&#x00009;" OR
+         Entity EQ "&#9;" OR
+         Entity EQ "&#09;" OR
+         Entity EQ "&#009;"
+           CleanChar = '  '
+    CASE Entity EQ "&newline;" OR
+         Entity EQ "&#x0000a;" OR
+         Entity EQ "&#10;" OR
+         Entity EQ "&#010;"
+           CleanChar = CHAR(254) ;* Attribute mark.
+    CASE Entity EQ "&#x00000c;" OR
+         Entity EQ "&#12;" OR
+         Entity EQ "&#012;"
+           CleanChar = CHAR(12)
+    CASE Entity EQ "&nbsp;" OR
+         Entity EQ "&nonbreakingspace;" OR
+         Entity EQ "&#x000a0;" OR
+         Entity EQ "&#160;" OR
+         Entity EQ "&#x0020;" OR
+         Entity EQ "&#32;" OR
+         Entity EQ "&#032;"
+           CleanChar = ' '
+    CASE Entity EQ "&excl;" OR
+         Entity EQ "&#x00021;" OR
+         Entity EQ "&#33;" OR
+         Entity EQ "&#033;"
+           CleanChar = '!'
+    CASE Entity EQ "&quot;" OR
+         Entity EQ "&#x00022;" OR
+         Entity EQ "&#34;" OR
+         Entity EQ "&#034;" OR
+         Entity EQ "&dblac;" OR
+         Entity EQ "&diacriticaldoubledacute;" OR
+         Entity EQ "&#x002dd;" OR
+         Entity EQ "&#733;"
+           CleanChar = '"'
+    CASE Entity EQ "&num;" OR
+         Entity EQ "&#x00023;" OR
+         Entity EQ "&#35;" OR
+         Entity EQ "&#035;"
+           CleanChar = '#'
+    CASE Entity EQ "&dollar;" OR
+         Entity EQ "&#x00024;" OR
+         Entity EQ "&#36;" OR
+         Entity EQ "&#036;"
+           CleanChar = '$'
+    CASE Entity EQ "&percnt;" OR
+         Entity EQ "&#x00025;" OR
+         Entity EQ "&#37;" OR
+         Entity EQ "&#037;"
+           CleanChar = '%'
+    CASE Entity EQ "&amp;" OR
+         Entity EQ "&#x00026;" OR
+         Entity EQ "&#38;" OR
+         Entity EQ "&#038;"
+           CleanChar = '&'
+    CASE Entity EQ "&apos;" OR
+         Entity EQ "&#x00027;" OR
+         Entity EQ "&#39;" OR
+         Entity EQ "&#039;" OR
+         Entity EQ "&acute;" OR
+         Entity EQ "&diacriticalacute;" OR
+         Entity EQ "&#x000B4;" OR
+         Entity EQ "&#180;"
+           CleanChar = "'"
+    CASE Entity EQ "&lpar;" OR
+         Entity EQ "&#x00028;" OR
+         Entity EQ "&#40;" OR
+         Entity EQ "&#040;"
+           CleanChar = '('
+    CASE Entity EQ "&rpar;" OR
+         Entity EQ "&#x00029;" OR
+         Entity EQ "&#41;" OR
+         Entity EQ "&#041;"
+           CleanChar = ')'
+    CASE Entity EQ "&ast;" OR
+         Entity EQ "&midast;" OR
+         Entity EQ "&#x0002a;" OR
+         Entity EQ "&#42;" OR
+         Entity EQ "&#042;"
+           CleanChar = '*'
+    CASE Entity EQ "&plus;" OR
+         Entity EQ "&#x0002b;" OR
+         Entity EQ "&#43;" OR
+         Entity EQ "&#043;"
+           CleanChar = '+'
+    CASE Entity EQ "&comma;" OR
+         Entity EQ "&#x0002c;"  OR
+         Entity EQ "&#44;" OR
+         Entity EQ "&#044;"
+           CleanChar = ','
+    CASE Entity EQ "&period;" OR
+         Entity EQ "&#x0002e;" OR
+         Entity EQ "&#46;" OR
+         Entity EQ "&#046;"
+           CleanChar = '.'
+    CASE Entity EQ "&sol;" OR
+         Entity EQ "&#x0002f;" OR
+         Entity EQ "&#47;" OR
+         Entity EQ "&#047;"
+           CleanChar = '/'
+    CASE Entity EQ "&colon;" OR
+         Entity EQ "&#x0003a;" OR
+         Entity EQ "&#58;" OR
+         Entity EQ "&#058;"
+           CleanChar = ':'
+    CASE Entity EQ "&semi;" OR
+         Entity EQ "&#x0003b;" OR
+         Entity EQ "&#59;" OR
+         Entity EQ "&#059;"
+           CleanChar = ';'
+    CASE Entity EQ "&lt;" OR
+         Entity EQ "&#x0003c;" OR
+         Entity EQ "&#60;" OR
+         Entity EQ "&#060;"
+           CleanChar = '<'
+    CASE Entity EQ "&equals;" OR
+         Entity EQ "&#x0003d;" OR
+         Entity EQ "&#61;" OR
+         Entity EQ "&#061;"
+           CleanChar = '='
+    CASE Entity EQ "&gt;" OR
+         Entity EQ "&#x0003e;" OR
+         Entity EQ "&#62;" OR
+         Entity EQ "&#062;"
+           CleanChar = '>'
+    CASE Entity EQ "&quest;" OR
+         Entity EQ "&#x0003f;" OR
+         Entity EQ "&#63;" OR
+         Entity EQ "&#063;"
+           CleanChar = '?'
+    CASE Entity EQ "&commat;" OR
+         Entity EQ "&#x00040;" OR
+         Entity EQ "&#64;" OR
+         Entity EQ "&#064;"
+           CleanChar = '@'
+    CASE Entity EQ "&lsqb;" OR
+         Entity EQ "&lbrack;" OR
+         Entity EQ "&#x0005b;" OR
+         Entity EQ "&#91;" OR
+         Entity EQ "&#091;"
+           CleanChar = '['
+    CASE Entity EQ "&bsol;" OR
+         Entity EQ "&#x0005c;" OR
+         Entity EQ "&#92;" OR
+         Entity EQ "&#092;"
+           CleanChar = '\'
+    CASE Entity EQ "&rsqb;" OR
+         Entity EQ "&rbrack;" OR
+         Entity EQ "&#x0005d;" OR
+         Entity EQ "&#93;" OR
+         Entity EQ "&#093;"
+           CleanChar = ']'
+    CASE Entity EQ "&hat;" OR
+         Entity EQ "&#x0005e;" OR
+         Entity EQ "&#94;"OR
+         Entity EQ "&#094;"
+           CleanChar = '^'
+    CASE Entity EQ "&lowbar;" OR
+         Entity EQ "&#x0005f;" OR
+         Entity EQ "&#95;" OR
+         Entity EQ "&#095;" OR
+         Entity EQ "&UnderBar;" OR
+         Entity EQ "&#x00332;" OR
+         Entity EQ "&#818;"
+           CleanChar = '_'
+    CASE Entity EQ "&grave;" OR
+         Entity EQ "&diacriticalgrave;" OR
+         Entity EQ "&#x00060;" OR
+         Entity EQ "&#96;" OR
+         Entity EQ "&#096;"
+           CleanChar = CHAR(12)
+    CASE Entity EQ "&lcub;" OR
+         Entity EQ "&lbrace;" OR
+         Entity EQ "&#x0007b;" OR
+         Entity EQ "&#123;"
+           CleanChar = '{'
+    CASE Entity EQ "&verbar;" OR
+         Entity EQ "&vert;" OR
+         Entity EQ "&verticalline;"OR
+         Entity EQ "&#x0007c;" OR
+         Entity EQ "&#124;"
+           CleanChar = '|'
+    CASE Entity EQ "&rcub;" OR
+         Entity EQ "&rbrace;" OR
+         Entity EQ "&#x0007d;" OR
+         Entity EQ "&#125;"
+           CleanChar = '}'
+    CASE Entity EQ "&tilde;" OR
+         Entity EQ "&diacriticaltilde;" OR
+         Entity EQ "&#x002dc;" OR
+         Entity EQ "&#732;" OR
+         Entity EQ "&#126;"
+           CleanChar = '~'
+    CASE Entity EQ "&ucirc;" OR
+         Entity EQ "&#x000fb;" OR
+         Entity EQ "&#251;"
+           CleanChar = CHAR(251) ;* Text mark.
+    CASE Entity EQ "&uuml;" OR
+         Entity EQ "&#x000fc;" OR
+         Entity EQ "&#252;"
+           CleanChar = CHAR(252) ;* Sub-value mark.
+    CASE Entity EQ "&yacute;" OR
+         Entity EQ "&#x000fd;" OR
+         Entity EQ "&#253;"
+           CleanChar = CHAR(253) ;* Value mark.
+
+  END CASE
+
+  RETURN
+*
+END

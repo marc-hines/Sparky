@@ -1,0 +1,195 @@
+SUBROUTINE FS.SUB.COMPACT.ONE.MASTER( FsMasterFileName, ErrorList )
+* Copyright 2015 CDK Global LLC. All rights reserved.
+* FS9M0 - Feb 2015 - Marc Hines
+*
+* This program takes the DICT and DATA level contents of a
+* financial statement master file and 'compacts' its records
+* into a single linux text file that can be sourced and patched
+*
+  EQU AM   TO CHAR(254) ;* Attribute mark.
+  EQU VM   TO CHAR(253) ;* Value mark.
+  EQU SVM  TO CHAR(252) ;* Sub-value mark.
+  EQU TM   TO CHAR(251) ;* Text mark.
+  EQU FF   TO CHAR(12)  ;* Form Feed
+  EQU TAB  TO CHAR(9)   ;* Tab Character
+*
+  *EQU UnixMasterDirectory TO '/adp/3party/fs/masters'
+  EQU UnixMasterDirectory TO '/adp/home/csr/mwh'
+*
+  ErrorList = ''
+  StarCount = 0
+*
+  OPEN 'DICT', FsMasterFileName TO FS.MASTER.DICT.FILE ELSE
+    ErrorList = 'Unable to open DICT ':FsMasterFileName
+    RETURN
+  END
+*
+  OPEN FsMasterFileName TO FS.MASTER.DATA.FILE ELSE
+    ErrorList = 'Unable to open DATA ':FsMasterFileName
+    RETURN
+  END
+*
+  GOSUB GET.CLEAN.UNIX.MASTER.NAME
+  GOSUB CLEAR.OLD.MASTER
+  GOSUB ADD.HEADER.ITEMS
+  GOSUB ADD.DICT.LEVEL.ITEMS
+  GOSUB ADD.DATA.LEVEL.ITEMS
+  GOSUB ADD.FOOTER.ITEMS
+*
+  RETURN
+*
+******************
+GET.CLEAN.UNIX.MASTER.NAME:
+******************
+*
+  CleanUnixMasterName = CHANGE(FsMasterFileName,'[','')
+  CleanUnixMasterName = CHANGE(CleanUnixMasterName,']','')
+  CleanUnixMasterName = CHANGE(CleanUnixMasterName,'FS-','')
+  CleanUnixMasterName = CHANGE(CleanUnixMasterName,'-MASTER','')
+*
+  IF CleanUnixMasterName EQ '' THEN CleanUnixMasterName = '???'
+  CleanUnixMasterName = CleanUnixMasterName:'.master'
+*
+  UnixFullFilePath = UnixMasterDirectory:'/':CleanUnixMasterName
+*
+  PRINT 'Creating: ':UnixFullFilePath
+*
+  RETURN
+*
+******************
+CLEAR.OLD.MASTER:
+******************
+*
+  TclCommand = "SYS rm ":UnixFullFilePath:" 2>&1"
+  PERFORM TclCommand CAPTURING TclCommandOutput SETTING ErrorMessage
+*
+  RETURN
+*
+******************
+ADD.HEADER.ITEMS:
+******************
+*
+  LINE = STR('<',4):'MASTER:':FsMasterFileName:STR('>',4)
+  GOSUB APPEND.LINE.TO.FILE
+  LINE = STR('<',4):'VERSION:':'9M0.001.000':STR('>',4)
+  GOSUB APPEND.LINE.TO.FILE
+*
+  RETURN
+*
+******************
+ADD.FOOTER.ITEMS:
+******************
+*
+  LINE = STR('<',4):'END':STR('>',4)
+  GOSUB APPEND.LINE.TO.FILE
+*
+  RETURN
+*
+******************
+ADD.DICT.LEVEL.ITEMS:
+******************
+*
+  DataLevel = 'DICT'
+*
+  TclCommand = 'SSELECT DICT ':FsMasterFileName
+  PERFORM TclCommand RTNLIST FILE.LIST CAPTURING OUT SETTING ERRNO
+*
+  LOOP WHILE READNEXT ItemID FROM FILE.LIST DO
+    *
+    * Compact every dictionary item except the data
+    * level q-pointer item (It has the same name as
+    * the file)
+    *
+    IF ItemID NE FsMasterFileName THEN
+      READ CalcRecord FROM FS.MASTER.DICT.FILE, ItemID THEN
+        BEGIN CASE
+          CASE CalcRecord<1> EQ "A" OR ...
+               CalcRecord<1> EQ "S"
+            TypeCode = 'DICT'
+          CASE ItemID[1,6] EQ 'TBLRCS'
+            TypeCode = 'TBLRCS'
+          CASE ItemID EQ 'FORMS'
+            TypeCode = 'FORM'
+          CASE ItemID EQ 'FORMSWEB'
+            TypeCode = 'PDF'
+          CASE ItemID[-9,9] EQ '-SPECIALS'
+            TypeCode = 'SPL'
+          CASE ItemID[-5,5] EQ '-STAT'
+            TypeCode = 'STAT'
+          CASE ItemID EQ 'PUSH-LIST'
+            TypeCode = 'PUSHLIST'
+          CASE ItemID[1,4] EQ 'PUSH'
+            TypeCode = 'PUSH'
+          CASE NUM(ItemID[1,1])
+            TypeCode = 'PCL'
+          CASE 1
+            TypeCode = 'TXT'
+        END CASE
+        GOSUB APPEND.CALC.RECORD
+      END
+    END
+  REPEAT
+*
+  RETURN
+*
+******************
+ADD.DATA.LEVEL.ITEMS:
+******************
+*
+  DataLevel = 'DATA'
+*
+  TclCommand = 'SSELECT ':FsMasterFileName
+  PERFORM TclCommand RTNLIST FILE.LIST CAPTURING OUT SETTING ERRNO
+*
+  LOOP WHILE READNEXT ItemID FROM FILE.LIST DO 
+    READ CalcRecord FROM FS.MASTER.DATA.FILE, ItemID THEN
+      BEGIN CASE
+        CASE ItemID[1,1] EQ "!"
+          TypeCode = 'ORD'
+        CASE 1
+          TypeCode = 'PLC'
+      END CASE
+      GOSUB APPEND.CALC.RECORD
+    END
+  REPEAT
+*
+  RETURN
+*
+******************
+APPEND.CALC.RECORD:
+******************
+*
+  LINE = '<<<':DataLevel:':':ItemID:':':TypeCode:'>>>':AM:CalcRecord
+  LINE = CHANGE(LINE, AM, '\n');** Swap new lines for attributes
+  GOSUB APPEND.LINE.TO.FILE
+*
+  StarCount = StarCount + 1
+  IF StarCount GE 250 THEN
+    PRINT "*":
+    StarCount = 0
+  END
+*
+  RETURN
+*
+******************
+APPEND.LINE.TO.FILE:
+******************
+*
+  CleanLine = CHANGE(LINE, '&amp;', '!AMP!')
+  CleanLine = CHANGE(CleanLine, '&', '&#038;')
+  CleanLine = CHANGE(CleanLine, VM,  '&#253;')
+  CleanLine = CHANGE(CleanLine, SVM, '&#252;')
+  CleanLine = CHANGE(CleanLine, TM,  '&#251;')
+  CleanLine = CHANGE(CleanLine, FF,  '&#012;')
+  CleanLine = CHANGE(CleanLine, "'", '&#039;')
+  CleanLine = CHANGE(CleanLine, '"', '&#034;')
+  CleanLine = CHANGE(CleanLine, '$', '&#036;')
+  CleanLine = CHANGE(CleanLine, TAB, '&#009;')
+*
+* The -e option makes the '\n' convert to new line/char(10)
+*
+  PERFORM 'SYS echo -e "':CleanLine:'" >> ':UnixFullFilePath CAPTURING OUT
+*
+  RETURN
+*
+END

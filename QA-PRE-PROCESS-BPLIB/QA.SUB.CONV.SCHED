@@ -1,0 +1,1075 @@
+      SUBROUTINE QA.SUB.CONV.SCHED(PROJ.MD.FILE,ACCTG.LOGON.ID,ERROR)
+      * 03/10/2006 * LLS * NEW MODULE
+      * Based on FS.SUB.CONV.SCHED 07/05/1995 * Neal Tollisen
+      * COPYRIGHT 2006 ADP Dealer Services
+      *
+      * This subroutine takes the Quick Start SCHED-FILE2
+      * and TITLE and builds the GL equivalents
+      *
+      * 11/2/2006 * lls * applied fix for defect 176298
+      * Converts SCHED-FILE2 and TITLE to GL.SCHED.SETUP
+      *
+      * 4/2010 * RP810 * LLS * localized to QA9nn imported project
+      *
+      EQU TRUE TO 1
+      EQU FALSE TO 0
+      *
+      EQU AM TO CHAR(254)
+      EQU VM TO CHAR(253)
+      EQU SVM TO CHAR(252)
+      *
+      EQU INFO.MESSAGE TO 0
+      EQU WARNING.MESSAGE TO 1
+      EQU FATAL.MESSAGE TO 2
+      *
+      EQU GL.COA$BF.SCHED.A TO 15
+      EQU GL.COA$DF.SCHED.A TO 16
+      EQU GL.COA$PROD.SCHED.A TO 17
+      EQU GL.COA$CM.SCHED.A TO 18
+      EQU GL.COA$CNTL.TYPE.A TO 6
+      EQU GL.COA$PROD.TYPE.A TO 7
+      EQU GL.COA$CNTL2.TYPE.A TO 8
+      EQU GL.COA$DGL.SCHED.A  TO 32   ;*  176298
+      *
+      EQU GL.RPTLIB$HDG.A         TO 1
+      EQU GL.RPTLIB$WIDTH.A       TO 2
+      EQU GL.RPTLIB$FIELD.NAME.A  TO 3
+      EQU GL.RPTLIB$FIELD.NO.A    TO 4
+      EQU GL.RPTLIB$REQ.A         TO 5
+      EQU GL.RPTLIB$JUST.A        TO 6
+      EQU GL.RPTLIB$DATA.ACCS.A   TO 7
+      *
+      EQU GL.RPT.SETUP$FIELD.NO.A TO 1
+      EQU GL.RPT.SETUP$HDG.A      TO 2
+      EQU GL.RPT.SETUP$WIDTH.A    TO 3
+      EQU GL.RPT.SETUP$JUST.A     TO 4
+      EQU GL.RPT.SETUP$USER.ID.A  TO 5
+      EQU GL.RPT.SETUP$UPD.DATE.A TO 6
+      *
+      *
+      ***********************************
+      * MAIN 
+      ***********************************
+      *
+      GOSUB INIT
+      IF ERROR # "" THEN RETURN
+      *
+      FOR SCHED.NO = 1 TO SCHED.COUNT UNTIL ERROR # ''
+         *
+         * For each schedule number, determine the schedule type(s)
+         *
+         SCHED.ITEM = SCHED.FILE2<SCHED.NO>
+         *
+         * Period indicates end of schedules to run by SCH
+         *
+         IF SCHED.ITEM = '.' THEN
+            REQ.CLOSE = 0
+         END ELSE
+            SCHED.NAME = FIELD(SCHED.ITEM, ' ', 1)
+            SCHED.FILE = FIELD(SCHED.ITEM, ' ', 2)
+            SCHED.CODE = FIELD(SCHED.ITEM, ' ', 3)
+            SCHED.TITLE.ID = FIELD(SCHED.ITEM, ' ', 6)
+            SCHED.SPECIAL = FIELD(SCHED.ITEM, ' ', 7)
+            SCHED.TYPE = 0
+            DEF.SCH.CODE = ''
+            BEGIN CASE
+            CASE INDEX('SCH-MPD SCH-MPS SCH-SPD SCH-SPS SCH-WPD SCH-WPS',SCHED.NAME,1) > 0
+               SCHED.TYPE = 3 ;* Productivity
+               DEF.SCH.CODE = 'AGRS'
+               BEGIN CASE
+               CASE SCHED.NAME = 'SCH-MPD'
+                  SORT.TYPE = 'CN' :VM: 'R'
+               CASE SCHED.NAME = 'SCH-MPS'
+                  SORT.TYPE = 'CN'
+               CASE SCHED.NAME = 'SCH-SPD'
+                  SORT.TYPE = 'CN' :VM: 'R'
+               CASE SCHED.NAME = 'SCH-SPS'
+                  SORT.TYPE = 'CN'
+               CASE SCHED.NAME = 'SCH-WPD'
+                  SORT.TYPE = 'CN' :VM: 'R'
+               CASE SCHED.NAME = 'SCH-WPS'
+                  SORT.TYPE = 'CN'
+               END CASE
+            CASE SCHED.NAME = 'SCH-6'
+               SCHED.TYPE = 4 ;* Current month
+               DEF.SCH.CODE = 'AGRS'
+               SORT.TYPE = 'CR' :VM: 'D' :VM: 'R'
+            CASE SCHED.NAME = 'SCH-5'
+               SCHED.TYPE = 5 ;* Cash in bank
+               DEF.SCH.CODE = 'AGRC'
+               SORT.TYPE = 'J' :VM: 'R' :VM: 'D' :VM: 'C'
+            CASE INDEX('SCH-DGL SCH-DGL2 SCH-DGL3 SCH-DGL4 SCH-DGL5',SCHED.NAME,1)
+               SCHED.TYPE = 6 ;* Detail GL schedule
+               DEF.SCH.CODE = 'AGRD'
+               SORT.TYPE = 'J' :VM: 'R' :VM: 'C'
+            CASE SCHED.FILE = 'DGL'
+               * Detail GL that I don't know what to do with
+               ERROR = 1
+               PRINT "UNRECOGNIZED DGL SCHEDULE IN ":ACCTG.LOGON.ID:"."
+               * Give them a default DGL setup
+               SCHED.TYPE = 6 ;* Detail GL schedule
+               DEF.SCH.CODE = 'AGRD'
+               SORT.TYPE = 'J' :VM: 'R' :VM: 'C'
+            CASE SCHED.FILE = 'BF'
+               SCHED.TYPE = 1 ;* Balance Forward
+               DEF.SCH.CODE = 'AGRS'
+               SORT.TYPE = 'CR' :VM: 'J' :VM: 'R'
+            CASE SCHED.FILE = 'DF'
+               SCHED.TYPE = 2 ;* Detail forward
+               DEF.SCH.CODE = 'AGRS'
+               SORT.TYPE = 'CR' :VM: 'D' :VM: 'R'
+            END CASE
+            *
+            * If one of the above types, validate data
+            *
+            IF SCHED.TYPE > 0 THEN
+               * Read the defaults from the setup file
+               * See if these have already been written
+               READ GL.RPT.COL.SETUP FROM GL.RPT.SETUP.FID, 'DEFAULT*0*':DEF.SCH.CODE:'.COL.SETUP' ELSE
+                  BEGIN CASE
+                  CASE DEF.SCH.CODE EQ 'AGRS'
+                     GL.RPT.COL.SETUP = '1':VM:'2':VM:'4':VM:'5':AM:AM:AM:AM:'ADP':AM:9565
+                  CASE DEF.SCH.CODE EQ 'AGRD'
+                     GL.RPT.COL.SETUP = '1':VM:'2':VM:'4':VM:'5':VM:'6':AM:AM:AM:AM:'ADP':AM:9565
+                  CASE DEF.SCH.CODE EQ 'AGRC'
+                     GL.RPT.COL.SETUP = '1':VM:'2':VM:'3':VM:'4':VM:'6':VM:'9':AM:AM:AM:AM:'ADP':AM:9565
+                  CASE 1
+                     GL.RPT.COL.SETUP = ''
+                  END CASE
+               END
+               READ GL.RPT.HDR.SETUP FROM GL.RPT.SETUP.FID, 'DEFAULT*0*':DEF.SCH.CODE:'.HDR.SETUP' ELSE
+                  BEGIN CASE
+                  CASE DEF.SCH.CODE EQ 'AGRS'
+                     GL.RPT.HDR.SETUP = AM:AM:AM:AM:'ADP':AM:9565
+                  CASE 1
+                     GL.RPT.HDR.SETUP = ''
+                  END CASE
+               END
+               * Read the valid table items for particular type
+               *READ GL.RPTLIB.COL FROM GL.RPTLIB.FID, DEF.SCH.CODE:'.DEF.COL' ELSE
+               GL.RPTLIB.COL = ''
+               *END
+               *READ GL.RPTLIB.HDR FROM GL.RPTLIB.FID, DEF.SCH.CODE:'.DEF.HDR' ELSE
+               GL.RPTLIB.HDR = ''
+               *END
+               *IF SCHED.TYPE = 5 OR SCHED.TYPE = 6 THEN
+               * 11505024 begin
+               *IF SCHED.TYPE = 5 THEN
+               * Need to remove the 6 (AMOUNT) from the list of required fields
+               *   LOCATE '6' IN GL.RPT.COL.SETUP<1> SETTING POS THEN
+               *      GL.RPT.COL.SETUP = DELETE(GL.RPT.COL.SETUP,1,POS)
+               *   END
+               *END
+               * 11505024 end
+               *
+               CNTL.TYPE = ''
+               CNTL2.TYPE = ''
+               PROD.TYPE = ''
+               * Read title to get the accounts
+               ACCTS = ''
+               ACCOUNT.LIST = ''
+               COL.NAME = ''
+               IF SCHED.TYPE = 3 THEN
+                  * Get list of accounts from ACCT
+                  COMMAND = 'SSELECT ':ACCT.FILE.ID:' WITH SCHED-CD "':SCHED.CODE:'" "':SCHED.CODE:',]" "[,':SCHED.CODE:'" "[,':SCHED.CODE:',]"'
+                  PERFORM COMMAND RTNLIST ACCT.LIST CAPTURING DUMMY
+                  CO.ACCTS = ''
+                  DONE = FALSE
+                  LOOP
+                     READNEXT ACCT.ID FROM ACCT.LIST ELSE DONE = TRUE
+                  UNTIL DONE DO
+                     READ ACCT FROM ACCT.FID, ACCT.ID THEN
+                        CODES = ACCT<4>
+                        SCHED.CD = FIELD(CODES,' ',8)
+                        SPREAD = FIELD(CODES,' ',9)
+                        * Process for all schedule codes
+                        FOR FPTR = 1 TO 100 UNTIL FIELD(SCHED.CD,',',FPTR) = ''
+                           IF FIELD(SCHED.CD,',',FPTR) = SCHED.CODE THEN
+                              COL = FIELD(SPREAD,',',FPTR)
+                              ACCOUNT.LIST<1,COL,-1> = ACCT.ID
+                           END
+                        NEXT FPTR
+                     END
+                  REPEAT
+               END ELSE
+                  READ TITLE FROM TITLE.FID, SCHED.TITLE.ID THEN
+                     ACCT.COUNT = DCOUNT(TITLE, AM)
+                     FOR ACCT.PTR = 3 TO ACCT.COUNT
+                        ACCOUNT.LIST<1,ACCT.PTR-2> = TITLE<ACCT.PTR>
+                     NEXT ACCT.PTR
+                  END ELSE
+                     PRINT "TITLE NOT FOUND ":SCHED.TITLE.ID:" IN ":ACCTG.LOGON.ID:"."
+                     ERROR = 1
+                  END
+               END
+               IF (ACCOUNT.LIST # '') THEN
+                  ACCT.COUNT = DCOUNT(ACCOUNT.LIST<1>, VM)
+                  * Determine CNTL.TYPE, PROD.TYPE, and CNTL2.TYPE to use
+                  LOCAL.ERROR = ''
+                  COL.HDR.PTR = 9  ;* Not for DGL, but DGL won't get here
+                  FOR ACCT.PTR = 1 TO ACCT.COUNT UNTIL LOCAL.ERROR # ''
+                     COL.HD = ''
+                     SUB.ACCT.COUNT = DCOUNT(ACCOUNT.LIST<1,ACCT.PTR>,SVM)
+                     FOR SUB.ACCT.PTR = 1 TO SUB.ACCT.COUNT
+                        ACCT.ID = ACCOUNT.LIST<1,ACCT.PTR,SUB.ACCT.PTR>
+                        GOSUB GET.ACCT.CO.ID
+                        IF LOCAL.ERROR = '' THEN
+                           READ GL.COA FROM GL.COA.FID, CO.ID :'*': ACCT ELSE
+                              PRINT "ACCOUNT ":CO.ID:"*":ACCT:" NOT FOUND IN SCHED FOR ":ACCTG.LOGON.ID:"."
+                              ERROR = 1
+                              RETURN
+                           END
+                           *
+                           * Since the CNTL.TYPE, PROD.TYPE, and CNTL2.TYPE must all be the same,
+                           * I can set only the first time
+                           *
+                           IF CNTL.TYPE = '' THEN
+                              CNTL.TYPE = GL.COA<GL.COA$CNTL.TYPE.A>
+                              *
+                              *               CNTL2.TYPE = GL.COA<GL.COA$CNTL2.TYPE.A>
+                              *
+                              CNTL2.TYPE = '0'
+                              PROD.TYPE = GL.COA<GL.COA$PROD.TYPE.A>
+                           END
+                           *
+                           * Fill in accounts
+                           *
+                           ACCTS<1,ACCT.PTR,SUB.ACCT.PTR> = ACCT
+                           IF SCHED.TYPE <= 4 THEN
+                              LOCATE SCHED.NO IN GL.COA<SCHED.ATTR(SCHED.TYPE)> BY 'AR'SETTING SCHED.LOC ELSE
+                                 INS SCHED.NO BEFORE GL.COA<SCHED.ATTR(SCHED.TYPE), SCHED.LOC>
+                                 WRITE GL.COA ON GL.COA.FID, CO.ID :'*': ACCT
+                              END
+                           END
+                        END
+                     NEXT SUB.ACCT.PTR
+                     * Set ACCT.ID to first account in list
+                     ACCT.ID = ACCOUNT.LIST<1,ACCT.PTR,1>
+                     * Get the column heading information
+                     COL.HD = FIELD(SCHED.ITEM,' ',COL.HDR.PTR)
+                     IF COL.HD = 'T' THEN
+                        COL.HDR.PTR = COL.HDR.PTR + 1
+                        COL.HD = FIELD(SCHED.ITEM,' ',COL.HDR.PTR)
+                     END
+                     COL.HDR.PTR = COL.HDR.PTR + 1
+                     *
+                     * Fill in column names
+                     * I was told that this was for productivity only, but the database
+                     * documentation does not say anything about that..
+                     *          IF SCHED.TYPE = 3 THEN
+                     IF SCHED.SPECIAL = 'M-ACCT' THEN
+                        C.NAME = ''
+                        IF COL.HD = '' THEN COL.HD = ACCT.ID
+                        * Read the dictionary item from the file
+                        DICT.ITEM = ''
+                        BEGIN CASE
+                        CASE SCHED.FILE = 'BF'
+                           READ DICT.ITEM FROM DICT.BALANCE.FWD.FID, COL.HD ELSE DICT.ITEM = ''
+                        CASE SCHED.FILE = 'DF'
+                           READ DICT.ITEM FROM DICT.DETAIL.FWD.FID, COL.HD ELSE DICT.ITEM = ''
+                        END CASE
+                        DICT.NAME = DICT.ITEM<3>
+                        * Place column heading in item
+                        IF DICT.NAME = '' THEN
+                           COL.NAME<1,-1> = ACCT
+                        END ELSE
+                           COL.NAME<1,-1> = DICT.NAME
+                        END
+                        DICT.JUSTIFICATION = DICT.ITEM<9>
+                        * Convert justification to match GL.RPTLIB format
+                        BEGIN CASE
+                        CASE DICT.JUSTIFICATION = 'L'
+                           DICT.JUSTIFICATION = 'LT'
+                        CASE DICT.JUSTIFICATION = 'R'
+                           DICT.JUSTIFICATION = 'R'
+                        CASE DICT.JUSTIFICATION = 'RN'
+                           DICT.JUSTIFICATION = 'R'
+                        CASE DICT.JUSTIFICATION = 'U'
+                           DICT.JUSTIFICATION = 'L'
+                        END CASE
+                        DICT.WIDTH = DICT.ITEM<10>
+                        * Add the account attributes to GL.RPT.COL.SETUP
+                        COL.HD = 'COLUMN':ACCT.PTR
+                        ATTR.COUNT = DCOUNT(GL.RPTLIB.COL,AM)
+                        FOR ATTR.PTR = 1 TO ATTR.COUNT UNTIL GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$DATA.ACCS.A> = COL.HD
+                        NEXT ATTR.PTR
+                        IF ATTR.PTR <= ATTR.COUNT THEN
+                           GL.RPTLIB.HEADING.NAME = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$HDG.A>
+                           GL.RPTLIB.WIDTH = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$WIDTH.A>
+                           GL.RPTLIB.FIELD.NO = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$FIELD.NO.A>
+                           GL.RPTLIB.JUSTIFICATION = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$JUST.A>
+                           * Insert field number
+                           LOCATE GL.RPTLIB.FIELD.NO IN GL.RPT.COL.SETUP<1> BY 'AR' SETTING FOUND ELSE
+                              INS GL.RPTLIB.FIELD.NO BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A,FOUND>
+                           END
+                        END
+                     END
+                     *          END   *See note above about productivity type
+                  NEXT ACCT.PTR
+               END
+               * Get additional fields information from schedule
+               * If M-ACCT, COL.HDR.PTR is already pointing to next item
+               IF SCHED.SPECIAL # 'M-ACCT' THEN
+                  IF SCHED.TYPE = 6 THEN          ;* DGL
+                     COL.HDR.PTR = 7
+                  END ELSE
+                     COL.HDR.PTR = 9
+                  END
+               END
+               ***********************************************************
+               * Setup GL.RPT.SETUP items
+               ***********************************************************
+               * Make sure that 'AMOUNT' is added to all but DRCR
+               IF SCHED.SPECIAL # 'DRCR' THEN
+                  IF INDEX(SCHED.ITEM,'AMOUNT',1) = 0 THEN
+                     SCHED.ITEM = TRIM(SCHED.ITEM) : ' AMOUNT'
+                  END
+               END ELSE
+                  IF INDEX(SCHED.ITEM,'CREDIT',1) = 0 THEN
+                     SCHED.ITEM = TRIM(SCHED.ITEM) : ' CREDIT'
+                  END
+                  IF INDEX(SCHED.ITEM,'DEBIT',1) = 0 THEN
+                     SCHED.ITEM = TRIM(SCHED.ITEM) : ' DEBIT'
+                  END
+               END
+               * Add CNTRL if necessary
+               IF SCHED.TYPE = 6 THEN
+                  IF INDEX(SCHED.ITEM,'CNTRL',1) = 0 THEN
+                     SCHED.ITEM = TRIM(SCHED.ITEM) : ' CNTRL'
+                  END
+               END
+               * Add VEH.ENTRY.DATE (for CNTL.TYPE = 5) or AGE.DATE if BF schedule
+               IF SCHED.TYPE = 1 THEN
+                  IF CNTL.TYPE = 5 THEN
+                     IF INDEX(SCHED.ITEM,'VEH.ENTRY.DATE',1) = 0 THEN
+                        SCHED.ITEM = TRIM(SCHED.ITEM) : ' VEH.ENTRY.DATE'
+                     END
+                  END ELSE
+                     IF INDEX(SCHED.ITEM,'AGE.DATE',1) = 0 THEN
+                        SCHED.ITEM = TRIM(SCHED.ITEM) : ' AGE.DATE'
+                     END
+                  END
+               END
+               * Process all fields
+               LOOP
+                  * Get the column heading information
+                  COL.HD = FIELD(SCHED.ITEM,' ',COL.HDR.PTR)
+                  IF COL.HD = 'T' THEN
+                     COL.HDR.PTR = COL.HDR.PTR + 1
+                     COL.HD = FIELD(SCHED.ITEM,' ',COL.HDR.PTR)
+                  END
+               UNTIL COL.HD = '' DO
+                  C.NAME = ''
+                  IF COL.HD = '' THEN COL.HD = ACCT.ID
+                  DICT.ATTR = ''
+                  BEGIN CASE
+                  CASE SCHED.FILE = 'BF'
+                     READ DICT.ATTR FROM DICT.BALANCE.FWD.FID, COL.HD ELSE DICT.ATTR = ''
+                  CASE SCHED.FILE = 'DF'
+                     READ DICT.ATTR FROM DICT.DETAIL.FWD.FID, COL.HD ELSE DICT.ATTR = ''
+                  END CASE
+                  * Determine how attribute is formatted
+                  DICT.NAME = DICT.ATTR<3>
+                  DICT.JUSTIFICATION = DICT.ATTR<9>
+                  * Convert justification to match GL.RPTLIB format
+                  BEGIN CASE
+                  CASE DICT.JUSTIFICATION = 'L'
+                     DICT.JUSTIFICATION = 'LT'
+                  CASE DICT.JUSTIFICATION = 'R'
+                     DICT.JUSTIFICATION = 'R'
+                  CASE DICT.JUSTIFICATION = 'RN'
+                     DICT.JUSTIFICATION = 'R'
+                  CASE DICT.JUSTIFICATION = 'U'
+                     DICT.JUSTIFICATION = 'L'
+                  END CASE
+                  DICT.WIDTH = DICT.ATTR<10>
+                  * Name gets translated to Control Description for DGL
+                  IF SCHED.TYPE = 6 AND COL.HD = 'NAME' THEN
+                     COL.HD = 'CONTROL.DESCRIPTION'
+                  END
+                  * Determine if we need to find the "real" attribute
+                  LOCATE COL.HD IN COL.XLATE.FROM SETTING FOUND THEN
+                     COL.HD = COL.XLATE.TO<FOUND>
+                  END ELSE
+                     LOCATE COL.HD IN HDR.XLATE.FROM SETTING FOUND THEN
+                        COL.HD = HDR.XLATE.TO<FOUND>
+                     END ELSE
+                        GOSUB SET.COL.HD
+                     END
+                  END
+                  * Check if it is a COL item ...
+                  ATTR.COUNT = DCOUNT(GL.RPTLIB.COL,AM)
+                  FOR ATTR.PTR = 1 TO ATTR.COUNT UNTIL GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$DATA.ACCS.A> = COL.HD
+                  NEXT ATTR.PTR
+                  IF ATTR.PTR <= ATTR.COUNT THEN
+                     GL.RPTLIB.HEADING.NAME = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$HDG.A>
+                     GL.RPTLIB.WIDTH = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$WIDTH.A>
+                     GL.RPTLIB.FIELD.NO = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$FIELD.NO.A>
+                     GL.RPTLIB.JUSTIFICATION = GL.RPTLIB.COL<ATTR.PTR,GL.RPTLIB$JUST.A>
+                     * Insert field number
+                     LOCATE GL.RPTLIB.FIELD.NO IN GL.RPT.COL.SETUP<1> BY 'AR' SETTING FOUND THEN
+                        * Removed per Marc's request
+                        IF FALSE THEN
+                           IF DICT.NAME # '' AND DICT.NAME # GL.RPTLIB.HEADING.NAME THEN
+                              GL.RPT.COL.SETUP<GL.RPT.SETUP$HDG.A,FOUND> = DICT.NAME
+                           END
+                           * Compare format options
+                           IF DICT.JUSTIFICATION # GL.RPTLIB.JUSTIFICATION THEN
+                              GL.RPT.COL.SETUP<GL.RPT.SETUP$JUST.A,FOUND> = DICT.JUSTIFICATION
+                           END
+                           * Compare output width
+                           IF DICT.WIDTH # GL.RPTLIB.WIDTH THEN
+                              IF DICT.JUSTIFICATION # 'R' THEN
+                                 GL.RPT.COL.SETUP<GL.RPT.SETUP$WIDTH.A,FOUND> = DICT.WIDTH
+                              END
+                           END
+                        END
+                     END ELSE
+                        INS GL.RPTLIB.FIELD.NO BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A,FOUND>
+                        * Heading names will probably never be the same..
+                        * Removed per Marc's request
+                        IF FALSE THEN
+                           IF DICT.NAME # '' AND DICT.NAME # GL.RPTLIB.HEADING.NAME THEN
+                              INS DICT.NAME BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$HDG.A,FOUND>
+                           END
+                           * Compare format options
+                           IF DICT.JUSTIFICATION # GL.RPTLIB.JUSTIFICATION THEN
+                              INS DICT.JUSTIFICATION BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$JUST.A,FOUND>
+                           END
+                           * Compare output width
+                           IF DICT.WIDTH # GL.RPTLIB.WIDTH THEN
+                              IF DICT.JUSTIFICATION # 'R' THEN
+                                 INS DICT.WIDTH BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$WIDTH.A,FOUND>
+                              END
+                           END
+                        END
+                     END
+                  END ELSE
+                     * Or a HDR item...
+                     ATTR.COUNT = DCOUNT(GL.RPTLIB.HDR,AM)
+                     FOR ATTR.PTR = 1 TO ATTR.COUNT UNTIL GL.RPTLIB.HDR<ATTR.PTR,GL.RPTLIB$DATA.ACCS.A> = COL.HD
+                     NEXT ATTR.PTR
+                     IF ATTR.PTR <= ATTR.COUNT THEN
+                        GL.RPTLIB.HEADING.NAME = GL.RPTLIB.HDR<ATTR.PTR,GL.RPTLIB$HDG.A>
+                        GL.RPTLIB.WIDTH = GL.RPTLIB.HDR<ATTR.PTR,GL.RPTLIB$WIDTH.A>
+                        GL.RPTLIB.FIELD.NO = GL.RPTLIB.HDR<ATTR.PTR,GL.RPTLIB$FIELD.NO.A>
+                        GL.RPTLIB.JUSTIFICATION = GL.RPTLIB.HDR<ATTR.PTR,GL.RPTLIB$JUST.A>
+                        * Insert field number
+                        LOCATE GL.RPTLIB.FIELD.NO IN GL.RPT.HDR.SETUP<1> BY 'AR' SETTING FOUND THEN
+                           * Removed per Marc's request
+                           IF FALSE THEN
+                              IF DICT.NAME # '' AND DICT.NAME # GL.RPTLIB.HEADING.NAME THEN
+                                 GL.RPT.HDR.SETUP<GL.RPT.SETUP$HDG.A,FOUND> = DICT.NAME
+                              END
+                              * Compare format options
+                              IF DICT.JUSTIFICATION # GL.RPTLIB.JUSTIFICATION THEN
+                                 GL.RPT.HDR.SETUP<GL.RPT.SETUP$JUST.A,FOUND> = DICT.JUSTIFICATION
+                              END
+                              * Compare output width
+                              IF DICT.WIDTH # GL.RPTLIB.WIDTH THEN
+                                 IF DICT.JUSTIFICATION # 'R' THEN
+                                    GL.RPT.HDR.SETUP<GL.RPT.SETUP$WIDTH.A,FOUND> = DICT.WIDTH
+                                 END
+                              END
+                           END ;* IF FALSE
+                        END ELSE
+                           INS GL.RPTLIB.FIELD.NO BEFORE GL.RPT.HDR.SETUP<GL.RPT.SETUP$FIELD.NO.A,FOUND>
+                           * Heading names will probably never be the same..
+                           * Removed per Marc's request
+                           IF FALSE THEN
+                              IF DICT.NAME # '' AND DICT.NAME # GL.RPTLIB.HEADING.NAME THEN
+                                 INS DICT.NAME BEFORE GL.RPT.HDR.SETUP<GL.RPT.SETUP$HDG.A,FOUND>
+                              END
+                              * Compare format options
+                              IF DICT.JUSTIFICATION # GL.RPTLIB.JUSTIFICATION THEN
+                                 INS DICT.JUSTIFICATION BEFORE GL.RPT.HDR.SETUP<GL.RPT.SETUP$JUST.A,FOUND>
+                              END
+                              * Compare output width
+                              IF DICT.WIDTH # GL.RPTLIB.WIDTH THEN
+                                 IF DICT.JUSTIFICATION # 'R' THEN
+                                    INS DICT.WIDTH BEFORE GL.RPT.HDR.SETUP<GL.RPT.SETUP$WIDTH.A,FOUND>
+                                 END
+                              END
+                           END
+                        END
+                     END
+                  END
+                  COL.HDR.PTR = COL.HDR.PTR + 1
+               REPEAT
+               *
+               * Set error code if necessary (ERROR may already be set..)
+               *
+               IF LOCAL.ERROR # '' THEN
+                  ERROR = LOCAL.ERROR
+               END
+               IF ERROR # '' THEN
+                  RETURN
+               END
+               *
+               * Get what is to the right of 7th field.  Add space just in case the text
+               * we are searching for is the last text on the line.
+               *
+               SPACE.AT = INDEX(SCHED.ITEM,' ',7)
+               IF SPACE.AT > 0 THEN
+                  TO.RIGHT = SCHED.ITEM[SPACE.AT,-1] : ' '
+               END ELSE
+                  TO.RIGHT = ''
+               END
+               *
+               * Determine RPT.FMT
+               *
+               RPT.FMT = 'SA'                  ;* Default
+               BEGIN CASE
+               CASE SCHED.SPECIAL = 'AGED'
+                  *
+                  * Look for 120 day text..
+                  *
+                  BEGIN CASE
+                  CASE INDEX( TO.RIGHT ,' OVER-120 ', 1) > 0 OR INDEX(TO.RIGHT, ' TOTAL-120 ', 1) > 0
+                     RPT.FMT = 'A1'             ;* Aged 120 days
+                  CASE INDEX(TO.RIGHT, ' OVER-90 ', 1) > 0 OR INDEX(TO.RIGHT, ' TOTAL-90 ', 1) > 0
+                     RPT.FMT = 'A9'             ;* Aged 90 days
+                  CASE INDEX(TO.RIGHT, ' OVER-60 ', 1) > 0 OR INDEX(TO.RIGHT, ' TOTAL-60 ', 1) > 0
+                     RPT.FMT = 'A6'             ;* Aged 60 days
+                  CASE INDEX(TO.RIGHT, ' OVER-30 ', 1) > 0 OR INDEX(TO.RIGHT, ' TOTAL-30 ', 1) > 0
+                     RPT.FMT = 'A3'             ;* Aged 30 days
+                  CASE 1
+                     RPT.FMT = 'A3'             ;* Default
+                  END CASE
+               CASE SCHED.SPECIAL = 'M-ACCT'  ;* Multiple side by side acct columns
+                  RPT.FMT = 'MS'
+               CASE SCHED.SPECIAL = 'DRCR'    ;* Single account w/ debit & credit
+                  IF INDEX(TO.RIGHT, ' AMOUNT ', 1) > 0 THEN
+                     RPT.FMT = 'SB'
+                  END ELSE
+                     RPT.FMT = 'SD'
+                  END
+               CASE SCHED.SPECIAL = ',' AND ...
+                  (INDEX(TO.RIGHT, ' DEBITS ', 1) > 0 OR INDEX(TO.RIGHT, ' CREDITS ', 1) > 0)
+                  RPT.FMT = 'SB'               ;* Single acct w/ amt, debit & credit
+               CASE SCHED.SPECIAL = ','       ;* Single account with amount column
+                  RPT.FMT = 'SA'
+               END CASE
+               * Default amount width (default to 11 per John F Jones)
+               * Changed to 13 per Marc's request
+               AMT.WIDTH = 13
+               * Schedule types 1 thru 4 go into GL.SCHED.SETUP
+               IF SCHED.TYPE <= 4 THEN
+                  *
+                  * Format data..
+                  *
+                  PRINT.SEQ = SCHED.NO * 10
+                  GL.SCHED.SETUP = SCHED.TYPE :AM: ...
+                  TITLE<1>[1,30] :AM: ...
+                  PROD.TYPE :AM: ...
+                  CNTL.TYPE :AM: ...
+                  CNTL2.TYPE :AM: ...
+                  RPT.FMT :AM: ...
+                  ACCTS :AM: ...
+                  COL.NAME :AM: ...
+                  SORT.TYPE :AM: ...
+                  PRINT.SEQ :AM: ...
+                  REQ.CLOSE :AM: ...
+                  AMT.WIDTH :AM: ...
+                  USER.ID :AM: ...
+                  SYS.DATE
+                  *
+                  * Write out
+                  *
+                  GL.SCHED.SETUP.ID = CO.ID :'*': SCHED.NO
+                  WRITE GL.SCHED.SETUP ON GL.SCHED.SETUP.FID, GL.SCHED.SETUP.ID
+                  * Write out the column information if applicable
+                  IF GL.RPT.COL.SETUP # '' THEN
+                     GL.RPT.SETUP.ID = CO.ID :'*': SCHED.NO :'*': DEF.SCH.CODE :'.COL.SETUP'
+                     GL.RPT.COL.SETUP<GL.RPT.SETUP$USER.ID.A> = 'CREATION'
+                     GL.RPT.COL.SETUP<GL.RPT.SETUP$UPD.DATE.A> = SYS.DATE
+                     WRITE GL.RPT.COL.SETUP ON GL.RPT.SETUP.FID, GL.RPT.SETUP.ID
+                  END
+                  * Write out the header information if applicable
+                  IF GL.RPT.HDR.SETUP # '' THEN
+                     GL.RPT.SETUP.ID = CO.ID :'*': SCHED.NO :'*': DEF.SCH.CODE :'.HDR.SETUP'
+                     GL.RPT.HDR.SETUP<GL.RPT.SETUP$USER.ID.A> = 'CREATION'
+                     GL.RPT.HDR.SETUP<GL.RPT.SETUP$UPD.DATE.A> = SYS.DATE
+                     WRITE GL.RPT.HDR.SETUP ON GL.RPT.SETUP.FID, GL.RPT.SETUP.ID
+                  END
+               END ELSE IF SCHED.TYPE = 5 THEN
+                  *
+                  * Format data for Cash In Bank..
+                  *
+                  IF CIB.SCHED = 0 THEN
+                     CIB.SCHED = 1  ;* SCHED.NO
+                  END
+                  GL.CIB.SETUP.ID = CO.ID :'*': CIB.SCHED
+                  GL.RPT.SETUP.ID = CO.ID :'*': CIB.SCHED :'*': DEF.SCH.CODE :'.COL.SETUP'
+                  READ GL.CIB.SETUP FROM GL.CIB.SETUP.FID, GL.CIB.SETUP.ID THEN
+                     * Just add the new accounts to the list.  Account can only
+                     * appear once.
+                     ACCT.COUNT = DCOUNT(ACCTS, VM)
+                     FOR ACCT.PTR = 1 TO ACCT.COUNT
+                        LOCATE ACCTS<1,ACCT.PTR> IN GL.CIB.SETUP<1> BY 'AR' SETTING FOUND ELSE
+                           INS ACCTS<1,ACCT.PTR> BEFORE GL.CIB.SETUP<1,FOUND>
+                        END
+                     NEXT ACCT.PTR
+                     * Read old list and consolidate it
+                     READV OLD.GL.RPT.COL.SETUP FROM GL.RPT.SETUP.FID, GL.RPT.SETUP.ID, GL.RPT.SETUP$FIELD.NO.A THEN
+                        VM.COUNT = DCOUNT(OLD.GL.RPT.COL.SETUP<1>,VM)
+                        FOR VM.PTR = 1 TO VM.COUNT
+                           LOCATE OLD.GL.RPT.COL.SETUP<1,VM.PTR> IN GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A> BY 'AR' SETTING FOUND ELSE
+                              INS OLD.GL.RPT.COL.SETUP<1,VM.PTR> BEFORE GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A,FOUND>
+                           END
+                        NEXT VM.PTR
+                     END
+                     * If the AMT.FMT is not already 3, the we may need to set
+                     * it to a 3.
+                     IF GL.CIB.SETUP<2> # '3' THEN
+                        IF GL.CIB.SETUP<2> = '1' THEN
+                           * If already 1, then look for 7 and set to 3
+                           LOCATE '7' IN GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A> BY 'AR' SETTING FOUND THEN
+                              GL.CIB.SETUP<2> = '3'
+                           END
+                        END ELSE
+                           * If already 2, then look for 6 and set to 3
+                           LOCATE '6' IN GL.RPT.COL.SETUP<GL.RPT.SETUP$FIELD.NO.A> BY 'AR' SETTING FOUND THEN
+                              GL.CIB.SETUP<2> = '3'
+                           END
+                        END
+                     END
+                  END ELSE
+                     BEGIN CASE
+                     CASE RPT.FMT = 'SD'
+                        AMT.FMT = 3
+                     CASE RPT.FMT = 'SB'
+                        AMT.FMT = 2
+                     CASE 1
+                        AMT.FMT = 1
+                     END CASE
+                     JRNL.BRK = 'Y'
+                     IF REQ.CLOSE THEN
+                        REQ.CLOSE.YN = 'Y'
+                     END ELSE
+                        REQ.CLOSE.YN = 'N'
+                     END
+                     GL.CIB.SETUP = ACCTS :AM: ...
+                     AMT.FMT :AM: ...
+                     SORT.TYPE :AM: ...
+                     JRNL.BRK :AM: ...
+                     REQ.CLOSE.YN :AM: ...
+                     USER.ID :AM: ...
+                     SYS.DATE
+                  END
+                  * Write out cash in bank data
+                  WRITE GL.CIB.SETUP ON GL.CIB.SETUP.FID, GL.CIB.SETUP.ID
+                  * Write out the column information if applicable
+                  IF GL.RPT.COL.SETUP # '' THEN
+                     GL.RPT.COL.SETUP<GL.RPT.SETUP$USER.ID.A> = 'CREATION'
+                     GL.RPT.COL.SETUP<GL.RPT.SETUP$UPD.DATE.A> = SYS.DATE
+                     WRITE GL.RPT.COL.SETUP ON GL.RPT.SETUP.FID, GL.RPT.SETUP.ID
+                  END
+               END ELSE IF SCHED.TYPE = 6 THEN
+                  *
+                  * Format data for Detail GL Schedule.. (Only one allowed)
+                  *
+                  IF DGL.SCHED = 0 THEN
+                     DGL.SCHED = 1  ;*SCHED.NO
+                     BEGIN CASE
+                     CASE RPT.FMT = 'SD'
+                        AMT.FMT = 3
+                     CASE RPT.FMT = 'SB'
+                        AMT.FMT = 2
+                     CASE 1
+                        AMT.FMT = 1
+                     END CASE
+                     JRNL.BRK = 'N'
+                     IF REQ.CLOSE THEN
+                        REQ.CLOSE.YN = 'Y'
+                     END ELSE
+                        REQ.CLOSE.YN = 'N'
+                     END
+                     * Get list of accounts from ACCT
+                     PERFORM 'SSELECT ':ACCT.FILE.ID:' WITH SCHED-CD "2" "2,]" "[,2" "[,2,]"' RTNLIST ACCT.LIST CAPTURING DUMMY
+                     CO.ACCTS = ''
+                     DONE = FALSE
+                     LOOP
+                        READNEXT ACCT.ID FROM ACCT.LIST ELSE DONE = TRUE
+                     UNTIL DONE DO
+                        * Map the account
+                        GOSUB GET.ACCT.CO.ID
+                        IF LOCAL.ERROR = '' THEN
+                           CO.ACCTS<1,-1> = ACCT
+                           * Begin 176298
+                           READV GL.COA.DGL.ID FROM GL.COA.FID, CO.ID:"*":ACCT, GL.COA$DGL.SCHED.A THEN
+                              LOCATE DGL.SCHED IN GL.COA.DGL.ID<1> SETTING SCHED.POS ELSE
+                                 GL.COA.DGL.ID<1, -1> = DGL.SCHED
+                                 WRITEV GL.COA.DGL.ID ON GL.COA.FID, CO.ID:"*":ACCT, GL.COA$DGL.SCHED.A
+                              END
+                           END
+                           * End 176298
+                        END
+                     REPEAT
+                     * Write out for each company
+                     IF CO.ACCTS # '' THEN
+                        GL.DGL.SETUP = CO.ACCTS :AM: ...
+                        AMT.FMT :AM: ...
+                        SORT.TYPE :AM: ...
+                        JRNL.BRK :AM: ...
+                        REQ.CLOSE.YN :AM: ...
+                        USER.ID :AM: ...
+                        SYS.DATE
+                        * Write out the detail gl setup item
+                        GL.DGL.SETUP.ID = "co#" :'*': DGL.SCHED
+                        WRITE GL.DGL.SETUP ON GL.DGL.SETUP.FID, GL.DGL.SETUP.ID
+                        * Write out the column information if applicable
+                        IF GL.RPT.COL.SETUP # '' THEN
+                           GL.RPT.SETUP.ID = "co#" :'*': DGL.SCHED :'*': DEF.SCH.CODE :'.COL.SETUP'
+                           GL.RPT.COL.SETUP<GL.RPT.SETUP$USER.ID.A> = 'CREATION'
+                           GL.RPT.COL.SETUP<GL.RPT.SETUP$UPD.DATE.A> = SYS.DATE
+                           WRITE GL.RPT.COL.SETUP ON GL.RPT.SETUP.FID, GL.RPT.SETUP.ID
+                        END
+                     END
+                     CO.ACCTS = ''
+                  END
+               END
+            END ;* SCHED.TYPE > 0
+         END ;* SCHED.NAME = '.'
+      NEXT SCHED.NO
+      *
+      RETURN
+      * End of MAIN
+      *
+      ***********************************
+      * SUBROUTINES
+      ***********************************
+      *
+      *
+      ***********************************
+      * INIT SUBROUTINE
+      ***********************************
+      *
+INIT: 
+      LOCAL.ERROR = ''
+      ERROR = ''
+      ACCT.FILE.ID = ACCTG.LOGON.ID:"/ACCT"
+      OPEN ACCT.FILE.ID TO ACCT.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no ":ACCT.FILE.ID:" file."
+         RETURN
+      END
+      *
+      PRIVLIB.ID = ACCTG.LOGON.ID:"/PRIVLIB"
+      OPEN '', PRIVLIB.ID TO PRIVLIB.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no ":PRIVLIB.ID:" file."
+         RETURN
+      END
+      *
+      READ SCHED.FILE2 FROM PRIVLIB.FID, 'SCHED-FILE2' ELSE
+         SCHED.FILE2 = ''
+         PRINT "NO SCHED-FILE2"
+      END
+      *
+      TITLE.ID = ACCTG.LOGON.ID:"/TITLE"
+      OPEN TITLE.ID TO TITLE.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no ":TITLE.ID:" file."
+         RETURN
+      END
+      *
+      DETAIL.FWD.ID = ACCTG.LOGON.ID:"/DETAIL-FWD"
+      OPEN 'DICT', DETAIL.FWD.ID TO DICT.DETAIL.FWD.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no ":DETAIL.FWD.ID:" file."
+         RETURN
+      END
+      *
+      BALANCE.FWD.ID = ACCTG.LOGON.ID:"/BALANCE-FWD"
+      OPEN 'DICT', BALANCE.FWD.ID TO DICT.BALANCE.FWD.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no ":BALANCE.FWD.ID:" file."
+         RETURN
+      END
+      *
+      FILE.ID = ACCTG.LOGON.ID:"/GL.ACCT.MAP"
+      GL.ACCT.MAP.FLAG = 1
+      OPEN FILE.ID TO GL.ACCT.MAP.FID ELSE
+         GL.ACCT.MAP.FLAG = 0
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.COA" TO GL.COA.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no GL.COA file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.SCHED.SETUP" TO GL.SCHED.SETUP.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no GL.SCHED.SETUP file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.RPT.SETUP" TO GL.RPT.SETUP.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no GL.RPT.SETUP file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.CIB.SETUP" TO GL.CIB.SETUP.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no GL.CIB.SETUP file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.DGL.SETUP" TO GL.DGL.SETUP.FID ELSE
+         ERROR = "QA.SUB.CONV.SCHED: There is no GL.DGL.SETUP file."
+         RETURN
+      END
+      *
+      * Build array of schedule positions in GL.COA
+      *
+      DIMENSION SCHED.ATTR(4)
+      SCHED.ATTR(1) = GL.COA$BF.SCHED.A   ;* Balance forward schedule
+      SCHED.ATTR(2) = GL.COA$DF.SCHED.A   ;* Detail forward schedule
+      SCHED.ATTR(3) = GL.COA$PROD.SCHED.A ;* Productivity schedule
+      SCHED.ATTR(4) = GL.COA$CM.SCHED.A   ;* Current Month schedule
+      *
+      COL.XLATE.FROM = 'CNTRL' :AM: ...
+      'SO' :AM: ...
+      'JRNL-DESCR' :AM: ...    ;* ???
+      'REFER' :AM: ...
+      'DATE' :AM: ...
+      'ACCT' :AM: ...
+      'ACCT-DESC' :AM: ...
+      'AMOUNT' :AM: ...
+      'DEBIT' :AM: ...
+      'CREDIT' :AM: ...
+      'CURRENT' :AM: ...
+      'OVER-30' :AM: ...
+      'TOTAL-30' :AM: ...
+      'OVER-60' :AM: ...
+      'TOTAL-60' :AM: ...
+      'OVER-90' :AM: ...
+      'TOTAL-90' :AM: ...
+      'OVER-120' :AM: ...
+      'TOTAL-120' :AM: ...
+      'CNTRL2' :AM: ...
+      'POST-DESC' :AM: ...
+      'CONTROL.DESCRIPTION'
+      COL.XLATE.TO = 'CONTROL' :AM: ...
+      'JOURNAL.NUMBER' :AM: ...
+      'JOURNAL.DESCRIPTION' :AM: ...
+      'REFERENCE' :AM: ...
+      'DATE' :AM: ...
+      'ACCOUNT.NUMBER' :AM: ...
+      'ACCOUNT.DESCRIPTION' :AM: ...
+      'AMOUNT' :AM: ...
+      'DEBITS' :AM: ...
+      'CREDITS' :AM: ...
+      'CURRENT' :AM: ...
+      '30.DAYS' :AM: ...
+      '30.DAYS' :AM: ...
+      '60.DAYS' :AM: ...
+      '60.DAYS' :AM: ...
+      '90.DAYS' :AM: ...
+      '90.DAYS' :AM: ...
+      '120.DAYS' :AM: ...
+      '120.DAYS' :AM: ...
+      'CONTROL2' :AM: ...
+      'POSTING.DESCRIPTION' :AM: ...
+      'CONTROL.DESCRIPTION'
+      HDR.XLATE.FROM = 'NAME' :AM: ...
+      'DAYS' :AM: ...
+      'ADDRESS' :AM: ...
+      'CITY' :AM: ...
+      'STATE' :AM: ...
+      'ZIP' :AM: ...
+      'CITY-ST-ZIP' :AM: ...
+      'TELEPHONE' :AM: ...
+      'SS#' :AM: ...
+      'GRP' :AM: ...
+      'CREDIT' :AM: ...
+      'SERIAL' :AM: ...
+      'VEHID' :AM: ...
+      'AGE' :AM: ...
+      'AGING' :AM: ...
+      'YR' :AM: ...
+      'YEAR' :AM: ...
+      'MAKE' :AM: ...
+      'MODEL' :AM: ...
+      'SALESMAN' :AM: ...
+      'COLOR' :AM: ...
+      'OPT' :AM: ...
+      'AGE.DATE' :AM: ...  ;* Same as HDR.XLATE.FROM
+      'VEH.ENTRY.DATE'     ;* Same as HDR.XLATE.FROM
+      HDR.XLATE.TO = 'NAME' :AM: ...
+      'DAYS' :AM: ...
+      'ADDRESS' :AM: ...
+      'CITY' :AM: ...
+      'STATE' :AM: ...
+      'ZIP.CODE' :AM: ...
+      'CITY.STATE.ZIP' :AM: ...
+      'PHONE' :AM: ...
+      'SOCIAL.SECURITY.NBR' :AM: ...
+      'GROUP.CODE' :AM: ...
+      'CREDIT.LIMIT' :AM: ...
+      'VEH.SERIAL.NUMBER' :AM: ...
+      'VEH.VEHID' :AM: ...
+      'VEH.AGE' :AM: ...
+      'VEH.AGE' :AM: ...
+      'VEH.YEAR' :AM: ...
+      'VEH.YEAR' :AM: ...
+      'VEH.MAKE' :AM: ...
+      'VEH.MODEL' :AM: ...
+      'VEH.SALESMAN' :AM: ...
+      'VEH.COLOR' :AM: ...
+      'VEH.OPTIONS' :AM: ...
+      'AGE.DATE' :AM: ...      ;* Same as HDR.XLATE.FROM
+      'VEH.ENTRY.DATE'         ;* Same as HDR.XLATE.FROM
+      *
+      *
+      * Convert each schedule
+      *
+      REQ.CLOSE = 1 ;* All schedules above period are required before close
+      SCHED.COUNT = DCOUNT(SCHED.FILE2, AM)
+      CIB.SCHED = 0 ;* Only one schedule is allowed in new system
+      DGL.SCHED = 0 ;* Only one schedule is allowed in new system
+      *
+      USER.ID = "CREATION"
+      SYS.DATE = DATE()
+      *
+      RETURN
+      * End of INIT subroutine
+      *
+      ***********************************
+      * SET.COL.HD SUBROUTINE
+      ***********************************
+      *
+SET.COL.HD: 
+      *
+      FILE.NAME = ''  ;* File name
+      ATTR.POS = ''   ;* Attribute position in file
+      * See if there is a file in the conversion or corelative.
+      IF DICT.ATTR<7> # '' THEN
+         COR.ATTR = DICT.ATTR<7>
+         GOSUB SET.FILE.NAME
+      END
+      IF FILE.NAME = '' AND DICT.ATTR<8> # '' THEN
+         COR.ATTR = DICT.ATTR<8>
+         GOSUB SET.FILE.NAME
+      END
+      * If file name has not been set, then look at attribute itself
+      IF FILE.NAME = '' THEN
+         BEGIN CASE
+         CASE SCHED.FILE = 'BF'
+            FILE.NAME = 'BALANCE-FWD'
+         CASE SCHED.FILE = 'DF'
+            FILE.NAME = 'DETAIL-FWD'
+         END CASE
+         ATTR.POS = DICT.ATTR<2>
+      END
+      * If not set, then nothing to do
+      BEGIN CASE
+      CASE FILE.NAME = 'BALANCE-FWD' OR FILE.NAME = 'DETAIL-FWD'
+         BEGIN CASE
+         CASE ATTR.POS = 2
+            COL.HD = 'JOURNAL.NUMBER'
+         CASE ATTR.POS = 3
+            COL.HD = 'DATE'
+         CASE ATTR.POS = 4
+            COL.HD = 'REFERENCE'
+         CASE ATTR.POS = 5
+            COL.HD = 'ACCOUNT.NUMBER'
+         CASE ATTR.POS = 6
+            COL.HD = 'AMOUNT'
+         CASE ATTR.POS = 8
+            COL.HD = 'CONTROL'
+         CASE ATTR.POS = 21
+            COL.HD = 'CONTROL2'
+         END CASE
+      CASE FILE.NAME = 'NAME-FILE'
+         BEGIN CASE
+         CASE ATTR.POS = 2
+            COL.HD = 'NAME'
+         CASE ATTR.POS = 4
+            COL.HD = 'ADDRESS'
+         CASE ATTR.POS = 5
+            COL.HD = 'CITY'
+         CASE ATTR.POS = 6
+            COL.HD = 'STATE'
+         CASE ATTR.POS = 7
+            COL.HD = 'ZIP.CODE'
+         CASE ATTR.POS = 8
+            COL.HD = 'PHONE'
+         CASE ATTR.POS = 9
+            COL.HD = 'CREDIT.LIMIT'
+         CASE ATTR.POS = 12
+            COL.HD = 'GROUP.CODE'
+         CASE ATTR.POS = 27
+            COL.HD = 'SOCIAL.SECURITY.NUMBER'
+         END CASE
+      CASE FILE.NAME = 'CAR-INV'
+         BEGIN CASE
+         CASE ATTR.POS = 2
+            COL.HD = 'VEH.MAKE'
+         CASE ATTR.POS = 3
+            COL.HD = 'VEH.MODEL'
+         CASE ATTR.POS = 7
+            COL.HD = 'VEH.COLOR'
+         CASE ATTR.POS = 8
+            COL.HD = 'VEH.YEAR'
+         CASE ATTR.POS = 9
+            COL.HD = 'VEH.SERIAL.NUMBER'
+         CASE ATTR.POS = 14
+            COL.HD = 'VEH.OPTIONS'
+         CASE ATTR.POS = 16
+            COL.HD = 'VEH.SALESMAN'
+         CASE ATTR.POS = 23
+            COL.HD = 'VEH.FIELD.23'
+         CASE ATTR.POS = 24
+            COL.HD = 'VEH.FIELD.24'
+         CASE ATTR.POS = 25
+            COL.HD = 'VEH.FIELD.25'
+         CASE ATTR.POS = 26
+            COL.HD = 'VEH.FIELD.26'
+         CASE ATTR.POS = 27
+            COL.HD = 'VEH.FIELD.27'
+         CASE ATTR.POS = 28
+            COL.HD = 'VEH.FIELD.28'
+         CASE ATTR.POS = 29
+            COL.HD = 'VEH.FIELD.29'
+         CASE ATTR.POS = 30
+            COL.HD = 'VEH.FIELD.30'
+         END CASE
+      CASE FILE.NAME = 'ACCT'
+      CASE 1
+      END CASE
+      RETURN
+      * End of SET.COL.HD subroutine
+      *
+      *
+      ***********************************
+      * SET.FILE.NAME SUBROUTINE
+      ***********************************
+      *
+SET.FILE.NAME: 
+      VM.COUNT = DCOUNT(COR.ATTR,VM)
+      FOR VM.PTR = 1 TO VM.COUNT UNTIL FILE.NAME # ''
+         IF COR.ATTR<1,VM.PTR>[1,1] = 'T' THEN
+            FILE.NAME = FIELD(COR.ATTR<1,VM.PTR>,';',1)[2,-1]
+            ATTR.POS = FIELD(COR.ATTR<1,VM.PTR>,';',3)
+         END
+      NEXT VM.PTR
+      RETURN
+      * End of SET.FILE.NAME subroutine
+      *
+      ***********************************
+      * GET.ACCT.CO.ID SUBROUTINE
+      ***********************************
+      *
+GET.ACCT.CO.ID: 
+      LOCAL.ERROR = ''
+      ACCT = ACCT.ID
+      ACCT.TYPE = FIELD(ACCT<4>," ",3)
+      ACCT.SUB.TYPE = ''
+      ACCT.DESCR = ACCT<13>
+      CO.ID = "co#"
+      IF GL.ACCT.MAP.FLAG THEN
+         READ GL.ACCT.MAP FROM GL.ACCT.MAP.FID,ACCT.ID ELSE GL.ACCT.MAP = ''
+         IF GL.ACCT.MAP<3> NE '' THEN ACCT.TYPE = GL.ACCT.MAP<3>
+         IF GL.ACCT.MAP<4> NE '' THEN ACCT.SUB.TYPE = GL.ACCT.MAP<4>
+      END
+      RETURN
+      * End of GET.ACCT.CO.ID subroutine
+      *
+      END
+      
+      

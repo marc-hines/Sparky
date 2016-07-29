@@ -1,0 +1,609 @@
+      SUBROUTINE QA.SUB.CONV.ACCT(PROJ.MD.FILE,ACCTG.LOGON.ID,FS.DATE,ERROR)
+      * 03/10/2006 * LLS * NEW MODULE
+      * Based on FS.SUB.CONF.ACCT * Neal Tollisen * 06/30/1995
+      * COPYRIGHT 2006 ADP Dealer Services
+      *
+      * This subroutine takes the Quick Start ACCT and builds 
+      * the GL equivalents. QA.CREATE.GL.QS invokes this subroutine.
+      *
+      * Converts ACCT to GL.COA
+      *                  GL.SALE.CHN
+      *                  GL.PCL
+      *                  GL.COA.GRP
+      *                  GL.DEPT
+      **********************************************************
+      *
+      EQU TRUE TO 1
+      EQU FALSE TO 0
+      EQU AM TO CHAR(254)
+      EQU VM TO CHAR(253)
+      EQU NOT.HEAD TO 1
+      * Standard attribute names
+      EQU GL.COA$GL.SALE.CHN.ID.A TO 20
+      * Dimensioned Variables
+      DIMENSION MONTH.BALANCE(12),MONTH.COUNT(12)
+      *
+      ***********************************
+      * MAIN PROGRAM
+      ***********************************
+      *
+      GOSUB INIT
+      IF ERROR # "" THEN RETURN
+      
+      PERFORM "SSELECT ":ACCT.ID:" BY ITEM-ID" RTNLIST ACCT.LIST CAPTURING DUMMY
+      *
+      HEAD.LIST = ''
+      PTR.LIST = ''
+      HEAD.COUNT = 0
+      DONE = FALSE
+      LOOP WHILE READNEXT ACCT.ID FROM ACCT.LIST DO
+         READ ACCT.ITEM FROM ACCT.FID,ACCT.ID ELSE ACCT.ITEM = ''
+         GOSUB VALIDATE.ACCT.ITEM
+         IF VALID THEN
+            GOSUB GET.ACCT.CO.ID
+            GOSUB FORMAT.GL.COA
+            GOSUB BUILD.LINK
+            GOSUB FORMAT.GL.PCL
+            GOSUB UPDATE.OTHER.FILES
+         END ELSE
+            PRINT "ACCT ID ":ACCT.ID:" IN ":ACCTG.LOGON.ID:" IS INVALID."
+         END
+      REPEAT
+      ******
+      * Update the expense allocations and sales chain
+      *****
+      HEAD.PTR = 1
+      *
+      LOOP
+         ACCT.ID = HEAD.LIST<HEAD.PTR>
+      UNTIL ACCT.ID = '' DO
+         *
+         * Determine if it is the head of the chain..
+         IF PTR.LIST<HEAD.PTR,2> # NOT.HEAD THEN
+            *
+            * Determine chain type
+            GOSUB GET.ACCT.CO.ID
+            *
+            CHAIN.TYPE = ACCT.TYPE
+            *
+            * Place data in appropriate file
+            IF CHAIN.TYPE = 'S' THEN
+               GOSUB FORMAT.GL.SALE.CHN
+            END
+            IF LOCAL.ERROR # '' THEN
+               ERROR = LOCAL.ERROR
+               RETURN
+            END
+         END
+         HEAD.PTR = HEAD.PTR + 1
+      REPEAT
+      *
+      RETURN; * out of program
+      * End of QA.SUB.CONV.ACCT
+      *
+      ***********************************
+      * SUBROUTINES
+      ***********************************
+      *
+      *
+      ***********************************
+      * INIT SUBROUTINE
+      ***********************************
+      *
+INIT: 
+      ERROR = ''
+      ACCT.ID = ACCTG.LOGON.ID:"/ACCT"
+      OPEN '', ACCT.ID TO ACCT.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no ":ACCT.ID:" file."
+         RETURN
+      END
+      *
+      OPEN 'DICT', ACCT.ID TO DICT.ACCT.FID THEN
+         DICT.ITEM = "A"
+         DICT.ITEM<2> = 0
+         DICT.ITEM<9> = "R"
+         DICT.ITEM<10> = 10
+         WRITE DICT.ITEM ON DICT.ACCT.FID,'ITEM-ID'
+         DICT.ITEM<2> = "4"
+         DICT.ITEM<8> = "G7 1"
+         WRITE DICT.ITEM ON DICT.ACCT.FID,'SCHED-CD'
+      END ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no DICT ":ACCT.ID:" file."
+         RETURN
+      END
+      *
+      PRIVLIB.ID = ACCTG.LOGON.ID:"/PRIVLIB"
+      OPEN '', PRIVLIB.ID TO PRIVLIB.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no DICT ":PRIVLIB.ID:" file."
+         RETURN
+      END
+      *
+      READ SCHED.FILE2 FROM PRIVLIB.FID, 'SCHED-FILE2' ELSE
+         SCHED.FILE2 = ''
+      END
+      * Build list of productivity schedule codes
+      PROD.LIST = ''
+      SCHED.COUNT = DCOUNT(SCHED.FILE2,AM)
+      FOR SCHED.PTR = 1 TO SCHED.COUNT
+         SCHED.NAME = FIELD(SCHED.FILE2<SCHED.PTR>, ' ', 1)
+         IF INDEX('SCH-MPD SCH-MPS SCH-SPD SCH-SPS SCH-WPD SCH-WPS',SCHED.NAME,1) > 0 THEN
+            PROD.LIST<-1> = FIELD(SCHED.FILE2<SCHED.PTR>,' ', 3)
+         END
+      NEXT SCHED.PTR
+      *
+      READ GLJRNL FROM PRIVLIB.FID, 'GLJRNL' ELSE
+         ERROR = "QA.SUB.CONV.ACCT: Could not read GLJRNL from DICT ":PRIVLIB.ID:" file."
+         RETURN
+      END
+      RETAINED.EARNINGS.ID = GLJRNL<17>
+      *
+      MONTHS = 'JAN':AM:'FEB':AM:'MAR':AM:'APR':AM:'MAY':AM:'JUN':AM: 'JUL':AM:'AUG':AM:'SEP':AM:'OCT':AM:'NOV':AM:'DEC'
+      *
+      F.END.MONTH = GLJRNL<19>
+      CURRENT.ACCT.YEAR = GLJRNL<40>
+      *
+      * Add on the century
+      IF CURRENT.ACCT.YEAR > 80 THEN
+         CURRENT.ACCT.YEAR = '19':CURRENT.ACCT.YEAR
+      END ELSE
+         CURRENT.ACCT.YEAR = '20':CURRENT.ACCT.YEAR
+      END
+      *
+      * Convert fiscal year end month to ordinal month
+      LOCATE F.END.MONTH IN MONTHS SETTING F.END.MONTH ELSE
+         ERROR = "QA.SUB.CONV.ACCT: Could not locate ":F.END.MONTH:" in ":MONTHS:" - invalid month."
+         RETURN
+      END
+      *
+      NEXT.MONTH = F.END.MONTH + 1
+      IF NEXT.MONTH > 12 THEN
+         NEXT.MONTH = 1
+         FY.YEAR = CURRENT.ACCT.YEAR+1
+      END ELSE
+         FY.YEAR = CURRENT.ACCT.YEAR
+      END
+      FY.YR = ICONV('01':MONTHS<NEXT.MONTH>:(FY.YEAR-1),'D')
+      FY.BEG = ICONV("01JAN":(FIELD(OCONV(FS.DATE,"D4/"),"/",3)-1),"D")
+      *FY.BEG = FY.YR
+      *
+      FILE.ID = ACCTG.LOGON.ID:"/GL.ACCT.MAP"
+      GL.ACCT.MAP.FLAG = 1
+      OPEN FILE.ID TO GL.ACCT.MAP.FID ELSE
+         GL.ACCT.MAP.FLAG = 0
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.COA" TO GL.COA.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no GL.COA file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.DEPT" TO GL.DEPT.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no GL.DEPT file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.COA.GRP" TO GL.COA.GRP.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no GL.COA.GRP file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.SALE.CHN" TO GL.SALE.CHN.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no GL.SALE.CHN file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.PCL" TO GL.PCL.FID ELSE
+         ERROR = "QA.SUB.CONV.ACCT: There is no GL.PCL file."
+         RETURN
+      END
+      *
+      GL.EXP.ALLOC.ID = ''
+      SYSTEM.DATE = DATE()
+      RETURN
+      * End of INIT subroutine
+      *
+      *
+      ***********************************
+      * VALIDATE.ACCT.ITEM SUBROUTINE
+      ***********************************
+      *
+VALIDATE.ACCT.ITEM: 
+      *
+      * Count to make sure there are at least 13 attributes
+      VALID = FALSE
+      VALID = (DCOUNT(ACCT.ITEM,AM) >= 13) AND NUM(ACCT.ITEM<1>) AND NUM(ACCT.ITEM<2>) AND NUM(ACCT.ITEM<3>)
+      VALID = VALID AND (ACCT.ITEM<4> MATCHES "1N' '1N' '1A' '0X' '0N' '1N' '1X' '0X' '0X")
+      RETURN
+      * End of VALIDATE.ACCT.ITEM subroutine
+      *
+      *
+      ***********************************
+      * FORMAT.GL.COA SUBROUTINE
+      ***********************************
+      *
+FORMAT.GL.COA: 
+      * Format data into GL.COA format
+      GL.COA = ''
+      GL.COA.ID = ''
+      *
+      * Determine CNTL.TYPE
+      A4 = ACCT.ITEM<4>            ;* Attribute 4 contains 8 fields.
+      A4.1 = FIELD(A4,' ',1)       ;* CNTRL-CD
+      A4.3 = FIELD(A4,' ',3)       ;* TYP-CD
+      A4.7 = FIELD(A4,' ',7)       ;* NAME-CD
+      A4.8 = FIELD(A4,' ',8)       ;* SCHED-CD
+      *
+      CNTL.TYPE = '0'
+      IF ACCT.SUB.TYPE = 'IC' THEN
+         CNTL.TYPE = '9'
+         CNTL2.TYPE = '0'
+      END ELSE
+         * change to set cntl.type for all cntrl.codes unless name-cd = X
+         *  IF A4.1 = '1' THEN
+         IF A4.1 NE '4' THEN
+            IF A4.7 = 'X' AND A4.1 = '1' THEN
+               CNTL.TYPE = '12'
+            END ELSE
+               IF (A4.7 = '0' AND A4.1 = '1') THEN
+                  CNTL.TYPE = '10'
+               END ELSE
+                  CNTL.TYPE = A4.7
+                  *        IF CNTL.TYPE = '' THEN CNTL.TYPE = '0'
+                  IF CNTL.TYPE EQ '' OR CNTL.TYPE EQ 'X' THEN CNTL.TYPE = '0'
+               END
+            END
+         END
+      END
+      *
+      * Determine PROD.TYPE
+      IF A4.1 = '4' AND (A4.7 = '7' OR A4.7 = '8') THEN
+         PROD.TYPE = A4.7
+      END ELSE
+         SCHED.COUNT = DCOUNT(A4.8,',')
+         PROD.FOUND = FALSE
+         CNTL.FOUND = FALSE
+         FOR SCHED.PTR = 1 TO SCHED.COUNT
+            LOCATE FIELD(A4.8,',',SCHED.PTR) IN PROD.LIST SETTING DUMMY THEN
+               PROD.FOUND = TRUE
+            END ELSE
+               CNTL.FOUND = TRUE
+            END
+         NEXT SCHED.PTR
+         IF PROD.FOUND THEN
+            PROD.TYPE = A4.7
+         END ELSE
+            PROD.TYPE = '0'
+         END
+         IF NOT(CNTL.FOUND) THEN
+            CNTL.TYPE = '0'
+         END
+      END
+      CNTL2.TYPE = 0
+      *
+      * Stat.cnt.type
+      STAT.CNT.TYPE = FIELD(A4,' ',2)
+      BEGIN CASE
+      CASE STAT.CNT.TYPE = 1
+         STAT.CNT.TYPE = 2
+      CASE STAT.CNT.TYPE = 2
+         STAT.CNT.TYPE = 1
+      END CASE
+      * 9665013
+      * Set STAT.CNT.TYPE to auto w/ override if old type if V, per John Fletcher
+      IF ACCT.TYPE = 'A' AND ACCT.SUB.TYPE = 'VI' AND STAT.CNT.TYPE+0 = 0 THEN
+         STAT.CNT.TYPE = 2
+      END
+      *
+      * AR Schedule code
+      AR.SCHED = FIELD(A4,' ',8)
+      IF AR.SCHED < 'A' OR AR.SCHED > 'Y' THEN
+         AR.SCHED = ''
+      END
+      *
+      * Activity id
+      DEPT = ACCT.ITEM<9>
+      *
+      * Schedule type
+      S.TYPE = A4.7
+      *
+      A4.1 = FIELD(A4,' ',1)
+      *
+      SCHED.TYPE = 0
+      IF A4.1 = 1 THEN
+         IF S.TYPE >= 'A' AND S.TYPE <= 'M' THEN
+            SCHED.TYPE = 2
+         END ELSE IF S.TYPE >= 'N' AND S.TYPE <= 'Y' THEN
+            SCHED.TYPE = 1
+         END ELSE IF S.TYPE > 2 AND MOD(S.TYPE,2) = 0 THEN
+            SCHED.TYPE = 1
+         END ELSE IF MOD(S.TYPE,2) = 1 THEN
+            SCHED.TYPE = 2
+         END
+      END
+      BF.SCHED = ''
+      DF.SCHED = ''
+      PROD.SCHED = ''
+      CM.SCHED = ''
+      GL.SALE.CHN.ID = ''
+      POST.DESC.FLAG = '0'
+      FRCH.ID = ''
+      PATTERN = ''
+      POST.RETAIN = ''
+      *
+      IB.GRP = ACCT.ITEM<10>
+      IBS.GRP = ACCT.ITEM<11>
+      UNA.GRP = ACCT.ITEM<8>
+      RPT.GRP = ''
+      *
+      IH.TYPE = ACCT.ITEM<56>
+      *
+      DESCR = ACCT.ITEM<13>
+      *
+      GL.COA = DESCR :AM: ...       ;* 1
+      FY.BEG :AM: ...               ;* 2
+      '' :AM: ...                   ;* 3
+      ACCT.TYPE :AM: ...            ;* 4
+      ACCT.SUB.TYPE :AM: ...        ;* 5
+      CNTL.TYPE :AM: ...            ;* 6
+      PROD.TYPE :AM: ...            ;* 7
+      CNTL2.TYPE :AM: ...           ;* 8
+      POST.DESC.FLAG :AM: ...       ;* 9
+      STAT.CNT.TYPE :AM: ...        ;* 10
+      AR.SCHED :AM: ...             ;* 11
+      DEPT :AM: ...                 ;* 12
+      FRCH.ID :AM: ...              ;* 13
+      PATTERN :AM: ...              ;* 14
+      BF.SCHED :AM: ...             ;* 15
+      DF.SCHED :AM: ...             ;* 16
+      PROD.SCHED :AM: ...           ;* 17
+      CM.SCHED :AM: ...             ;* 18
+      GL.EXP.ALLOC.ID :AM: ...      ;* 19
+      GL.SALE.CHN.ID :AM: ...       ;* 20
+      IB.GRP :AM: ...               ;* 21
+      IBS.GRP :AM: ...              ;* 22
+      UNA.GRP :AM: ...              ;* 23
+      RPT.GRP :AM: ...              ;* 24
+      POST.RETAIN :AM: ...          ;* 25
+      IH.TYPE :AM: ...              ;* 26
+      FY.BEG :AM: ...               ;* 27
+      SYSTEM.DATE                   ;* 28
+      *
+      GL.COA.ID = CO.ID : '*' : ACCT
+      *
+      WRITE GL.COA ON GL.COA.FID, GL.COA.ID
+      GL.COA = ''                  ;* Free up unused variable space
+      GL.COA.ID = ''
+      *
+      RETURN
+      * End of FORMAT.GL.COA
+      *
+      *
+      ***********************************
+      * BUILD.LINK SUBROUTINE
+      ***********************************
+      *
+BUILD.LINK: 
+      * Extract the account that the current account chains to
+      CHAIN.ACCT = FIELD(ACCT.ITEM<4>,' ',4)
+      *
+      * Ignore chains ending in 99999 and ones that don't chain to anywhere
+      IF CHAIN.ACCT # '0' AND CHAIN.ACCT # '' AND CHAIN.ACCT # '99999' THEN
+         *
+         * Determine account type.  Most programs do not use this type, but
+         * rather, use the type set in the mapping files.
+         ACCT.TYPE = FIELD(ACCT.ITEM<4>,' ',3)
+         *
+         * Get percentage (if any)
+         PCT = FIELD(ACCT.ITEM<4>,' ',5)
+         *
+         * Percentage in new system has 2 significant digits
+         IF PCT+0 # 0 THEN PCT = PCT * 10
+         *
+         * Determine if the current account has been identified as a 
+         * chained account from another account.
+         LOCATE ACCT.ID IN HEAD.LIST SETTING THIS.PTR ELSE
+            HEAD.COUNT = HEAD.COUNT + 1
+            THIS.PTR = HEAD.COUNT
+         END
+         *
+         * Update list with account data
+         HEAD.LIST<THIS.PTR> = ACCT.ID
+         PTR.LIST<THIS.PTR,3> = ACCT.TYPE
+         *
+         * See if the account that this account chains to is in the list
+         LOCATE CHAIN.ACCT IN HEAD.LIST SETTING HEAD.PTR THEN
+            *
+            * If so, point to its header pointer and flag it as not being
+            * the head of a chain.
+            PTR.LIST<THIS.PTR,1> = HEAD.PTR
+            PTR.LIST<HEAD.PTR,2> = NOT.HEAD    ;*Indicate that this is not the head
+            PTR.LIST<HEAD.PTR,4> = PCT
+         END ELSE
+            *
+            * Otherwise, if the chain account is not yet in the list, put it in
+            * and update its attributes.
+            HEAD.COUNT = HEAD.COUNT + 1
+            HEAD.LIST<HEAD.COUNT> = CHAIN.ACCT
+            PTR.LIST<THIS.PTR,1> = HEAD.COUNT
+            PTR.LIST<HEAD.COUNT,2> = NOT.HEAD   ;* Indicate that an acct points to it
+            PTR.LIST<HEAD.COUNT,4> = PCT
+         END
+      END
+      RETURN
+      * End of BUILD.LINK subroutine
+      *
+      ***********************************
+      * FORMAT.GL.PCL SUBROUTINE
+      ***********************************
+      *
+FORMAT.GL.PCL: 
+      * For each PCL code identified in attribute ACCT<53>, write out
+      * an entry to GL.PCL for the statement correlative to PRIVLIB DNA<26>
+      PCL.CODES = ACCT.ITEM<53>
+      IF PCL.CODES # '' THEN
+         PCL.COUNT = DCOUNT(PCL.CODES,VM)
+         FOR PCL.PTR = 1 TO PCL.COUNT
+            IF PCL.CODES<1,PCL.PTR> # '' THEN
+               IF PCL.PTR EQ 1 THEN
+                  GL.PCL.ID = CO.ID : '*' : ACCT : '*' : "fs#" : '*' : FS.DATE
+               END ELSE
+                  GL.PCL.ID = CO.ID : '*' : ACCT : '*' : "fs" : PCL.PTR : '*' : FS.DATE
+               END
+               GL.PCL = PCL.CODES<1,PCL.PTR>
+               WRITE GL.PCL ON GL.PCL.FID, GL.PCL.ID
+            END
+         NEXT PCL.PTR
+      END
+      RETURN
+      * End of FORMAT.GL.PCL subroutine
+      *
+      ***********************************
+      * FORMAT.GL.SALE.CHN SUBROUTINE
+      ***********************************
+      *
+FORMAT.GL.SALE.CHN: 
+      LOCAL.ERROR = ''
+      GL.SALE.CHN = ''
+      GL.SALE.CHN.ID = CO.ID : '*' : ACCT
+      * Update GL.COA with the sales chain id
+      GOSUB UPDATE.GL.SALE.CHN.ID
+      *
+      BEG.PTR = PTR.LIST<HEAD.PTR,1>
+      *
+      * LOOP for all accounts that belong to the chain
+      LOOP UNTIL BEG.PTR = '' DO
+         ACCT.ID = HEAD.LIST<BEG.PTR>
+         GOSUB GET.ACCT.CO.ID
+         * Update the sales chain list
+         GOSUB UPDATE.GL.SALE.CHN.ID
+         * Populate attributes in the GL.SALE.CHN item
+         IF ACCT.TYPE = 'S' THEN
+            GL.SALE.CHN<1> = ACCT
+         END ELSE IF ACCT.TYPE = 'C' THEN
+            IF GL.SALE.CHN<2> = '' THEN
+               GL.SALE.CHN<2> = ACCT
+               GL.SALE.CHN<3> = PTR.LIST<BEG.PTR,4>    ;* percent allocation
+            END ELSE
+               GL.SALE.CHN<4> = ACCT
+            END
+         END ELSE
+            GL.SALE.CHN<5> = CO.ID
+            GL.SALE.CHN<6> = ACCT
+         END
+         BEG.PTR = PTR.LIST<BEG.PTR,1>
+      REPEAT
+      *
+      * Write out item to file
+      WRITE GL.SALE.CHN ON GL.SALE.CHN.FID, GL.SALE.CHN.ID
+      RETURN
+      * End of FORMAT.GL.SALE.CHN subroutine
+      *
+      ***********************************
+      * UPDATE.GL.SALE.CHN.ID SUBROUTINE
+      ***********************************
+      *
+UPDATE.GL.SALE.CHN.ID: 
+      * Update the GL.COA with the GL.SALES.CHN id's
+      READV GL.SALES.CHN.ID.LIST FROM GL.COA.FID, CO.ID:'*':ACCT, GL.COA$GL.SALE.CHN.ID.A THEN
+         GL.SALES.CHN.ID.LIST<1,-1> = GL.SALE.CHN.ID
+         WRITEV GL.SALES.CHN.ID.LIST ON GL.COA.FID, CO.ID:'*':ACCT, GL.COA$GL.SALE.CHN.ID.A
+      END
+      RETURN
+      * End of UPDATE.GL.SALE.CHN.ID subroutine
+      *
+      *
+      ***********************************
+      * GET.ACCT.CO.ID SUBROUTINE
+      ***********************************
+      *
+GET.ACCT.CO.ID: 
+      LOCAL.ERROR = ''
+      ACCT = ACCT.ID
+      READV ACCT.CODES FROM ACCT.FID,ACCT,4 ELSE ACCT.CODES = ''
+      ACCT.TYPE = FIELD(ACCT.CODES," ",3)
+      NAME.CD = FIELD(ACCT.CODES," ",7)
+      ACCT.SUB.TYPE = ''
+      BEGIN CASE
+      CASE ACCT.TYPE EQ "V"
+         ACCT.TYPE = "A"
+         IF NAME.CD EQ "5" THEN
+            ACCT.SUB.TYPE = "VI"
+         END
+      CASE ACCT.TYPE EQ "D"
+         ACCT.TYPE = "X"
+      CASE ACCT.TYPE EQ "P"
+         ACCT.TYPE = "Q"
+         ACCT.SUB.TYPE = "PR"
+      CASE ACCT EQ RETAINED.EARNINGS.ID
+         ACCT.TYPE = "Q"
+         ACCT.SUB.TYPE = "RE"
+      CASE ACCT.TYPE EQ "0"
+         ACCT.TYPE = "A"
+         ACCT.SUB.TYPE = "OP"
+      CASE ACCT.TYPE EQ "A"
+         SCHED = FIELD(ACCT.CODES," ",8)
+         SCHED.CNT = 0
+         LOOP
+            SCHED.CNT = SCHED.CNT + 1
+            CURR.SCHED = FIELD(SCHED,",",SCHED.CNT)
+         WHILE CURR.SCHED NE "" DO
+            BEGIN CASE
+            CASE SEQ(CURR.SCHED) GE 65 AND SEQ(CURR.SCHED) LE 77
+               ACCT.SUB.TYPE = "OR"
+            CASE SEQ(CURR.SCHED) GE 78 AND SEQ(CURR.SCHED) LE 86
+               ACCT.SUB.TYPE = "BR"
+            END CASE
+         REPEAT
+      END CASE
+      ACCT.DESCR = ACCT.ITEM<13>
+      CO.ID = "co#"
+      IF GL.ACCT.MAP.FLAG THEN
+         READ GL.ACCT.MAP FROM GL.ACCT.MAP.FID,ACCT.ID ELSE GL.ACCT.MAP = ''
+         IF GL.ACCT.MAP<3> NE '' THEN ACCT.TYPE = GL.ACCT.MAP<3>
+         IF GL.ACCT.MAP<4> NE '' THEN ACCT.SUB.TYPE = GL.ACCT.MAP<4>
+      END
+      RETURN
+      * End of GET.ACCT.CO.ID subroutine
+      *
+      ***********************************
+      * UPDATE.OTHER.FILES SUBROUTINE
+      ***********************************
+      *
+UPDATE.OTHER.FILES: 
+      IF ACCT.ITEM<8> NE '' THEN
+         READV DUMMY FROM GL.COA.GRP.FID,"co#*UNA*":ACCT.ITEM<8>,1 ELSE
+            GL.COA.GRP = TRIM(ACCT.ITEM<13>," ","L")
+            WRITE GL.COA.GRP ON GL.COA.GRP.FID,"co#*UNA*":ACCT.ITEM<8>
+         END
+      END
+      *****
+      IF ACCT.ITEM<9> NE '' THEN
+         READ GL.DEPT.ITEM FROM GL.DEPT.FID,"1*":ACCT.ITEM<9> ELSE
+            GL.DEPT.ITEM = 'Dept ':ACCT.ITEM<9>
+         END
+         GL.DEPT.ID = "co#*":ACCT.ITEM<9>
+         WRITE GL.DEPT.ITEM ON GL.DEPT.FID,GL.DEPT.ID
+         *         DELETE GL.DEPT.FID,"1*":ACCT.ITEM<9>
+      END
+      *****
+      IF ACCT.ITEM<10> NE '' THEN
+         GL.COA.GRP.ID = "co#*IB*":ACCT.ITEM<10>
+         READV DUMMY FROM GL.COA.GRP.FID,GL.COA.GRP.ID,1 ELSE
+            GL.COA.GRP = ACCT.ITEM<10>
+            WRITE GL.COA.GRP ON GL.COA.GRP.FID,GL.COA.GRP.ID
+         END
+      END
+      *****
+      IF ACCT.ITEM<11> NE '' THEN
+         GL.COA.GRP.ID = "co#*IBS*":ACCT.ITEM<11>
+         READV DUMMY FROM GL.COA.GRP.FID,GL.COA.GRP.ID,1 ELSE
+            GL.COA.GRP = ACCT.ITEM<11>
+            WRITE GL.COA.GRP ON GL.COA.GRP.FID,GL.COA.GRP.ID
+         END
+      END
+      RETURN
+      * End of UPDATE.OTHER.FILES subroutine
+      *
+      END
+      
+      

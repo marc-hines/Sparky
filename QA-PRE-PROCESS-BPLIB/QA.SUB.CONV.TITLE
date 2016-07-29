@@ -1,0 +1,86 @@
+      SUBROUTINE QA.SUB.CONV.TITLE(PROJ.MD.FILE,ACCTG.LOGON.ID,ERROR)
+      * 03/10/2006 * LLS * NEW MODULE
+      * COPYRIGHT 2006 ADP Dealer Services
+      * Based on FS.SUB.CONV.TITLE * Neal Tollisen * 07/05/1995
+      *
+      * This subroutine takes the Quick Start TITLE and builds
+      * the GL equivalents
+      *
+      * Converts TITLE to GL.COA.GRP
+      * 4/2010 * RP810 * LLS * localized to QA9nn imported project
+      *
+      EQU AM     TO CHAR(254)
+      *
+      *
+      ***********************************
+      * MAIN 
+      ***********************************
+      *
+      GOSUB INIT
+      IF ERROR # "" THEN RETURN
+      SELECT TITLE.FID
+      *
+      LOOP WHILE READNEXT TITLE.ID DO
+         IF TITLE.ID[1,4] = 'GRP-' THEN
+            READ TITLE.ITEM FROM TITLE.FID, TITLE.ID ELSE
+               ERROR =  TITLE.ID:" NOT FOUND IN TITLE ON ":ACCTG.LOGON.ID:"."
+               RETURN
+            END
+            GOSUB VALIDATE.TITLE.ITEM
+            IF VALID THEN
+               GL.COA.GRP.ID = "co#*IB*":TITLE.ID[5,-1]
+               GL.COA.GRP = TRIM(TITLE.ITEM<1>[1,30],' ','L')
+               WRITE GL.COA.GRP ON GL.COA.GRP.FID, GL.COA.GRP.ID
+               GL.COA.GRP.ID = "co#*IBS*":TITLE.ID[5,-1]
+               GL.COA.GRP = TITLE.ID[5,-1]
+               WRITE GL.COA.GRP ON GL.COA.GRP.FID, GL.COA.GRP.ID
+            END
+         END
+      REPEAT
+      *
+      RETURN
+      * End of MAIN
+      *
+      *
+      ***********************************
+      * SUBROUTINES 
+      ***********************************
+      *
+      *
+      ***********************************
+      * INIT SUBROUTINE 
+      ***********************************
+      *
+INIT: 
+      ERROR = ''
+      TITLE.ID = ACCTG.LOGON.ID:"/TITLE"
+      OPEN '', TITLE.ID TO TITLE.FID ELSE
+         ERROR = "QA.SUB.CONV.TITLE: There is no ":TITLE.ID:" file."
+         RETURN
+      END
+      *
+      OPEN "", ACCTG.LOGON.ID:"/GL.COA.GRP" TO GL.COA.GRP.FID ELSE
+         ERROR = "QA.SUB.CONV.TITLE: There is no GL.COA.GRP file."
+         RETURN
+      END
+      *
+      GL.COA.GRP = ''
+      RETURN
+      * End of INIT subroutine
+      *
+      ***********************************
+      * VALIDATE.TITLE.ITEM SUBROUTINE 
+      ***********************************
+      *
+VALIDATE.TITLE.ITEM: 
+      VALID = 1
+      *
+      * Count to make sure there is at least 1 attribute
+      IF DCOUNT(TITLE.ITEM,AM) LT 1 THEN
+         PRINT "TOO FEW ATTRIBUTES IN ":TITLE.ID:" IN TITLE ON ":ACCTG.LOGON.ID:"."
+         VALID = 0
+      END
+      RETURN
+      * End of VALIDATE.TITLE.ITEM subroutine
+      END
+      
