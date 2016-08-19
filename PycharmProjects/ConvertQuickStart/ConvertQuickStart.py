@@ -397,7 +397,7 @@ def create_dgl_setup_item():
             source_file_obj.close()
             acct_rec = make_dictionary_from_binary(binary_data, 57)
             # Turn Attribue 4 of old ACCT into a Dictionary for easy access
-            acct_rec_attr_4 = make_dictionary_from_string(acct_rec[4], ' ', 0)
+            acct_rec_attr_4 = make_dictionary_from_string(acct_rec[4], ' ', 8)
             if acct_rec_attr_4[8] == '2':
                 if gl_dgl_setup_rec[1] == '':
                     gl_dgl_setup_rec[1] = acct_account_id
@@ -666,7 +666,7 @@ def convert_one_quick_start(mfr_code: str):
             acct_rec[0] = acct_account_id
 
             # Turn Attribue 4 of old ACCT into a Dictionary for easy access
-            acct_rec_attr_4 = make_dictionary_from_string(acct_rec[4], ' ', 0)
+            acct_rec_attr_4 = make_dictionary_from_string(acct_rec[4], ' ', 8)
 
             # AR Schedule code
             ar_sched_code = acct_rec_attr_4[8]
