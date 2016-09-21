@@ -1,7 +1,7 @@
 #!/bin/sh
 HOST='172.29.211.163'
 USER='adp'
-PASSWD='Ndac10ud'
+PASSWD='************'
 SOURCEREALBASE='/adp/masterdbases/reality1/H.qMUFbMACQb'
 TARGETREALBASE='/adp/masterdbases/reality1/H.qMUFbMACQb'
 

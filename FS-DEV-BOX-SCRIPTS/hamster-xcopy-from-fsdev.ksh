@@ -1,7 +1,7 @@
 #!/bin/sh
 HOST='172.29.211.163'
 USER='adp'
-PASSWD='r4p1Dt03'
+PASSWD='************'
 
 ######################################
 ### hand create these directories and

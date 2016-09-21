@@ -1,7 +1,7 @@
 #!/bin/sh
 HOST='172.29.211.163'
 USER='adp'
-PASSWD='r1vnD3ll'
+PASSWD='************'
 REALBASE='/adp/masterdbases/reality1/H.qMUFbMACQb'
 
 ACCTNAME='LIBRARY_'
