@@ -1,10 +1,23 @@
 #!/bin/sh
 HOST='C300172.internal.dms.cdk.com'
 USER='adp'
-PASSWD='********'
+PASSWD='*******'
 
 SOURCEREALBASE='/adp/masterdbases/reality1/H.IglshWsqbY'
-TARGETREALBASE='/adp/masterdbases/reality1/H.IglshWsqbY'
+TARGETREALBASE='/adp/masterdbases/reality1/H.Um3hWSnSlyGy'
+
+ACCTNAME='BARB'
+rm $TARGETREALBASE/$ACCTNAME/*
+ftp -n $HOST <<END_SCRIPT
+quote USER $USER
+quote PASS $PASSWD
+binary
+prompt
+lcd $TARGETREALBASE/$ACCTNAME
+cd $SOURCEREALBASE/$ACCTNAME
+mget *
+quit
+END_SCRIPT
 
 ACCTNAME='QS-=5BRR=5D'
 rm $TARGETREALBASE/$ACCTNAME/*
@@ -923,19 +936,6 @@ quit
 END_SCRIPT
 
 ACCTNAME='PETE'
-rm $TARGETREALBASE/$ACCTNAME/*
-ftp -n $HOST <<END_SCRIPT
-quote USER $USER
-quote PASS $PASSWD
-binary
-prompt
-lcd $TARGETREALBASE/$ACCTNAME
-cd $SOURCEREALBASE/$ACCTNAME
-mget *
-quit
-END_SCRIPT
-
-ACCTNAME='BARB'
 rm $TARGETREALBASE/$ACCTNAME/*
 ftp -n $HOST <<END_SCRIPT
 quote USER $USER
