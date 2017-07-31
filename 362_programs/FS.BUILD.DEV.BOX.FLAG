@@ -1,0 +1,461 @@
+* FS.BUILD.DEV.BOX.FLAG
+*
+  OPEN 'PRIVLIB' TO PRIVLIB.FILE ELSE STOP
+  READ FLAG FROM PRIVLIB.FILE,'FS.DEV.BOX.FLAG' ELSE STOP
+ *
+  FLAG<10> = ""
+  FLAG<11> = ""
+  FLAG<12> = ""
+  FLAG<13> = ""
+ *
+ * 1  ACURA-A [ACURA] 100
+ *
+  FLAG<10,-1> = "ACURA-A"
+  FLAG<11,-1> = "[ACURA]"
+  FLAG<12,-1> = "100"
+  FLAG<13,-1> = "100"
+ *
+ * 2  ACURACAN-A [ACURACAN] 101
+ *
+  FLAG<10,-1> = "ACURACAN-A"
+  FLAG<11,-1> = "[ACURACAN]"
+  FLAG<12,-1> = "101"
+  FLAG<13,-1> = "101"
+ *
+ * 3  AUDI-A [AUDI] 102
+ *
+  FLAG<10,-1> = "AUDI-A"
+  FLAG<11,-1> = "[AUDI]"
+  FLAG<12,-1> = "102"
+  FLAG<13,-1> = "102"
+ *
+ * 4  AUDICAN-A [AUDICAN] 103
+ *
+  FLAG<10,-1> = "AUDICAN-A"
+  FLAG<11,-1> = "[AUDICAN]"
+  FLAG<12,-1> = "103"
+  FLAG<13,-1> = "103"
+ *
+ * 5  BEN-A [BEN] 104
+ *
+  FLAG<10,-1> = "BEN-A"
+  FLAG<11,-1> = "[BEN]"
+  FLAG<12,-1> = "104"
+  FLAG<13,-1> = "104"
+ *
+ * 6  BENCAN-A [BENCAN] 105
+ *
+  FLAG<10,-1> = "BENCAN-A"
+  FLAG<11,-1> = "[BENCAN]"
+  FLAG<12,-1> = "105"
+  FLAG<13,-1> = "105"
+ *
+ * 7  BMW-A [BMW] 106
+ *
+  FLAG<10,-1> = "BMW-A"
+  FLAG<11,-1> = "[BMW]"
+  FLAG<12,-1> = "106"
+  FLAG<13,-1> = "106"
+ *
+ * 8  BMWMC-A [BMWMC] 107
+ *
+  FLAG<10,-1> = "BMWMC-A"
+  FLAG<11,-1> = "[BMWMC]"
+  FLAG<12,-1> = "107"
+  FLAG<13,-1> = "107"
+ *
+ * 9  CHRY-A [CHRY] 108
+ *
+  FLAG<10,-1> = "CHRY-A"
+  FLAG<11,-1> = "[CHRY]"
+  FLAG<12,-1> = "108"
+  FLAG<13,-1> = "108"
+*
+* 10  CHRYCAN-A [CHRYCAN] 109
+*
+  FLAG<10,-1> = "CHRYCAN-A"
+  FLAG<11,-1> = "[CHRYCAN]"
+  FLAG<12,-1> = "109"
+  FLAG<13,-1> = "109"
+*
+* 11  DTNA-A [DTNA] 110
+*
+  FLAG<10,-1> = "DTNA-A"
+  FLAG<11,-1> = "[DTNA]"
+  FLAG<12,-1> = "110"
+  FLAG<13,-1> = "110"
+*
+* 12  FERRARI-A [FERRARI] 111
+*
+  FLAG<10,-1> = "FERRARI-A"
+  FLAG<11,-1> = "[FERRARI]"
+  FLAG<12,-1> = "111"
+  FLAG<13,-1> = "111"
+*
+* 13  FIAT-A [FIAT] 112
+*
+  FLAG<10,-1> = "FIAT-A"
+  FLAG<11,-1> = "[FIAT]"
+  FLAG<12,-1> = "112"
+  FLAG<13,-1> = "112"
+*
+* 14  FORD-A [FORD] 113
+*
+  FLAG<10,-1> = "FORD-A"
+  FLAG<11,-1> = "[FORD]"
+  FLAG<12,-1> = "113"
+  FLAG<13,-1> = "113"
+*
+* 15  GM-A [GM] 114
+*
+  FLAG<10,-1> = "GM-A"
+  FLAG<11,-1> = "[GM]"
+  FLAG<12,-1> = "114"
+  FLAG<13,-1> = "114"
+*
+* 16  GMCAN-A [GMCAN] 115
+*
+  FLAG<10,-1> = "GMCAN-A"
+  FLAG<11,-1> = "[GMCAN]"
+  FLAG<12,-1> = "115"
+  FLAG<13,-1> = "115"
+*
+* 17  HONDA-A [HONDA] 116
+*
+  FLAG<10,-1> = "HONDA-A"
+  FLAG<11,-1> = "[HONDA]"
+  FLAG<12,-1> = "116"
+  FLAG<13,-1> = "116"
+*
+* 18  HONDACAN-A [HONDACAN] 117
+*
+  FLAG<10,-1> = "HONDACAN-A"
+  FLAG<11,-1> = "[HONDACAN]"
+  FLAG<12,-1> = "117"
+  FLAG<13,-1> = "117"
+*
+* 19  HONDAMC-A HONDAMC 118
+*
+  FLAG<10,-1> = "HONDAMC-A"
+  FLAG<11,-1> = "HONDAMC"
+  FLAG<12,-1> = "118"
+  FLAG<13,-1> = "118"
+*
+* 20  HONDPCAN-A [HONDPCAN] 119
+*
+  FLAG<10,-1> = "HONDPCAN-A"
+  FLAG<11,-1> = "[HONDPCAN]"
+  FLAG<12,-1> = "119"
+  FLAG<13,-1> = "119"
+*
+* 21  HYU-A [HYU] 120
+*
+  FLAG<10,-1> = "HYU-A"
+  FLAG<11,-1> = "[HYU]"
+  FLAG<12,-1> = "120"
+  FLAG<13,-1> = "120"
+*
+* 22  HYUCAN-A [HYUCAN] 121
+*
+  FLAG<10,-1> = "HYUCAN-A"
+  FLAG<11,-1> = "[HYUCAN]"
+  FLAG<12,-1> = "121"
+  FLAG<13,-1> = "121"
+*
+* 23  IND-A IND 122
+*
+  FLAG<10,-1> = "IND-A"
+  FLAG<11,-1> = "IND"
+  FLAG<12,-1> = "122"
+  FLAG<13,-1> = "122"
+*
+* 24  INFIN-A [INFIN] 123
+*
+  FLAG<10,-1> = "INFIN-A"
+  FLAG<11,-1> = "[INFIN]"
+  FLAG<12,-1> = "123"
+  FLAG<13,-1> = "123"
+*
+* 25  INFINCAN-A [INFINCAN] 124
+*
+  FLAG<10,-1> = "INFINCAN-A"
+  FLAG<11,-1> = "[INFINCAN]"
+  FLAG<12,-1> = "124"
+  FLAG<13,-1> = "124"
+*
+* 26  ISUZU-A [ISUZU] 125
+*
+  FLAG<10,-1> = "ISUZU-A"
+  FLAG<11,-1> = "[ISUZU]"
+  FLAG<12,-1> = "125"
+  FLAG<13,-1> = "125"
+*
+* 27  JAG-A [JAG] 126
+*
+  FLAG<10,-1> = "JAG-A"
+  FLAG<11,-1> = "[JAG]"
+  FLAG<12,-1> = "126"
+  FLAG<13,-1> = "126"
+*
+* 28  KIA-A [KIA] 127
+*
+  FLAG<10,-1> = "KIA-A"
+  FLAG<11,-1> = "[KIA]"
+  FLAG<12,-1> = "127"
+  FLAG<13,-1> = "127"
+*
+* 29  KIACAN-A [KIACAN] 128
+*
+  FLAG<10,-1> = "KIACAN-A"
+  FLAG<11,-1> = "[KIACAN]"
+  FLAG<12,-1> = "128"
+  FLAG<13,-1> = "128"
+*
+* 30  LAM-A [LAM] 129
+*
+  FLAG<10,-1> = "LAM-A"
+  FLAG<11,-1> = "[LAM]"
+  FLAG<12,-1> = "129"
+  FLAG<13,-1> = "129"
+*
+* 31  LEASE-A LEASE 130
+*
+  FLAG<10,-1> = "LEASE-A"
+  FLAG<11,-1> = "LEASE"
+  FLAG<12,-1> = "130"
+  FLAG<13,-1> = "130"
+*
+* 32  LEX-A [LEX] 131
+*
+  FLAG<10,-1> = "LEX-A"
+  FLAG<11,-1> = "[LEX]"
+  FLAG<12,-1> = "131"
+  FLAG<13,-1> = "131"
+*
+* 33  LEXCAN-A [LEXCAN] 132
+*
+  FLAG<10,-1> = "LEXCAN-A"
+  FLAG<11,-1> = "[LEXCAN]"
+  FLAG<12,-1> = "132"
+  FLAG<13,-1> = "132"
+*
+* 34  LR-A [LR] 133
+*
+  FLAG<10,-1> = "LR-A"
+  FLAG<11,-1> = "[LR]"
+  FLAG<12,-1> = "133"
+  FLAG<13,-1> = "133"
+*
+* 35  MACK-A MACK 134
+*
+  FLAG<10,-1> = "MACK-A"
+  FLAG<11,-1> = "MACK"
+  FLAG<12,-1> = "134"
+  FLAG<13,-1> = "134"
+*
+* 36  MASER-A MASER 135
+*
+  FLAG<10,-1> = "MASER-A"
+  FLAG<11,-1> = "MASER"
+  FLAG<12,-1> = "135"
+  FLAG<13,-1> = "135"
+*
+* 37  MAZDA-A [MAZDA] 136
+*
+  FLAG<10,-1> = "MAZDA-A"
+  FLAG<11,-1> = "[MAZDA]"
+  FLAG<12,-1> = "136"
+  FLAG<13,-1> = "136"
+*
+* 38  MAZDACAN-A [MAZDACAN] 137
+*
+  FLAG<10,-1> = "MAZDACAN-A"
+  FLAG<11,-1> = "[MAZDACAN]"
+  FLAG<12,-1> = "137"
+  FLAG<13,-1> = "137"
+*
+* 39  MB-A [MB] 138
+*
+  FLAG<10,-1> = "MB-A"
+  FLAG<11,-1> = "[MB]"
+  FLAG<12,-1> = "138"
+  FLAG<13,-1> = "138"
+*
+* 40  MBCAN-A [MBCAN] 139
+*
+  FLAG<10,-1> = "MBCAN-A"
+  FLAG<11,-1> = "[MBCAN]"
+  FLAG<12,-1> = "139"
+  FLAG<13,-1> = "139"
+*
+* 41  MCLAR-A MCLAR 140
+*
+  FLAG<10,-1> = "MCLAR-A"
+  FLAG<11,-1> = "MCLAR"
+  FLAG<12,-1> = "140"
+  FLAG<13,-1> = "140"
+*
+* 42  MIT-A [MIT] 141
+*
+  FLAG<10,-1> = "MIT-A"
+  FLAG<11,-1> = "[MIT]"
+  FLAG<12,-1> = "141"
+  FLAG<13,-1> = "141"
+*
+* 43  MITCAN-A [MITCAN] 142
+*
+  FLAG<10,-1> = "MITCAN-A"
+  FLAG<11,-1> = "[MITCAN]"
+  FLAG<12,-1> = "142"
+  FLAG<13,-1> = "142"
+*
+* 44  NIS-A [NIS] 143
+*
+  FLAG<10,-1> = "NIS-A"
+  FLAG<11,-1> = "[NIS]"
+  FLAG<12,-1> = "143"
+  FLAG<13,-1> = "143"
+*
+* 45  NISCAN-A [NISCAN] 144
+*
+  FLAG<10,-1> = "NISCAN-A"
+  FLAG<11,-1> = "[NISCAN]"
+  FLAG<12,-1> = "144"
+  FLAG<13,-1> = "144"
+*
+* 46  NSTAR-A [NSTAR] 145
+*
+  FLAG<10,-1> = "NSTAR-A"
+  FLAG<11,-1> = "[NSTAR]"
+  FLAG<12,-1> = "145"
+  FLAG<13,-1> = "145"
+*
+* 47  PACCAR-A PACCAR 146
+*
+  FLAG<10,-1> = "PACCAR-A"
+  FLAG<11,-1> = "PACCAR"
+  FLAG<12,-1> = "146"
+  FLAG<13,-1> = "146"
+*
+* 48  PORSCHE-A [PORSCHE] 147
+*
+  FLAG<10,-1> = "PORSCHE-A"
+  FLAG<11,-1> = "[PORSCHE]"
+  FLAG<12,-1> = "147"
+  FLAG<13,-1> = "147"
+*
+* 49  PORCAN-A [PORCAN] 148
+*
+  FLAG<10,-1> = "PORCAN-A"
+  FLAG<11,-1> = "[PORCAN]"
+  FLAG<12,-1> = "148"
+  FLAG<13,-1> = "148"
+*
+* 50  REC-A REC 149
+*
+  FLAG<10,-1> = "REC-A"
+  FLAG<11,-1> = "REC"
+  FLAG<12,-1> = "149"
+  FLAG<13,-1> = "149"
+*
+* 51  SELTRK-A SELTRK 150
+*
+  FLAG<10,-1> = "SELTRK-A"
+  FLAG<11,-1> = "SELTRK"
+  FLAG<12,-1> = "150"
+  FLAG<13,-1> = "150"
+*
+* 52  SPRINT-A [SPRINT] 151
+*
+  FLAG<10,-1> = "SPRINT-A"
+  FLAG<11,-1> = "[SPRINT]"
+  FLAG<12,-1> = "151"
+  FLAG<13,-1> = "151"
+*
+* 53  STD-A STD 152
+*
+  FLAG<10,-1> = "STD-A"
+  FLAG<11,-1> = "STD"
+  FLAG<12,-1> = "152"
+  FLAG<13,-1> = "152"
+*
+* 54  SUB-A [SUB] 153
+*
+  FLAG<10,-1> = "SUB-A"
+  FLAG<11,-1> = "[SUB]"
+  FLAG<12,-1> = "153"
+  FLAG<13,-1> = "153"
+*
+* 55  SUBCAN-A [SUBCAN] 154
+*
+  FLAG<10,-1> = "SUBCAN-A"
+  FLAG<11,-1> = "[SUBCAN]"
+  FLAG<12,-1> = "154"
+  FLAG<13,-1> = "154"
+*
+* 56  SUZ-A [SUZ] 155
+*
+  FLAG<10,-1> = "SUZ-A"
+  FLAG<11,-1> = "[SUZ]"
+  FLAG<12,-1> = "155"
+  FLAG<13,-1> = "155"
+*
+* 57  SUZCAN-A SUZCAN 156
+*
+  FLAG<10,-1> = "SUZCAN-A"
+  FLAG<11,-1> = "SUZCAN"
+  FLAG<12,-1> = "156"
+  FLAG<13,-1> = "156"
+*
+* 58  TOY-A [TOY] 157
+*
+  FLAG<10,-1> = "TOY-A"
+  FLAG<11,-1> = "[TOY]"
+  FLAG<12,-1> = "157"
+  FLAG<13,-1> = "157"
+*
+* 59  TOYCAN-A [TOYCAN] 158
+*
+  FLAG<10,-1> = "TOYCAN-A"
+  FLAG<11,-1> = "TOYCAN]"
+  FLAG<12,-1> = "158"
+  FLAG<13,-1> = "158"
+*
+* 60  TRK-A TRK 159
+*
+  FLAG<10,-1> = "TRK-A"
+  FLAG<11,-1> = "TRK"
+  FLAG<12,-1> = "159"
+  FLAG<13,-1> = "159"
+*
+* 61  VOLVO-A [VOLVO] 160
+*
+  FLAG<10,-1> = "VOLVO-A"
+  FLAG<11,-1> = "[VOLVO]"
+  FLAG<12,-1> = "160"
+  FLAG<13,-1> = "160"
+*
+* 62  VW-A [VW] 161
+*
+  FLAG<10,-1> = "VW-A"
+  FLAG<11,-1> = "[VW]"
+  FLAG<12,-1> = "161"
+  FLAG<13,-1> = "161"
+*
+* 63  VWCAN-A [VWCAN] 162
+*
+  FLAG<10,-1> = "VWCAN-A"
+  FLAG<11,-1> = "[VWCAN]"
+  FLAG<12,-1> = "162"
+  FLAG<13,-1> = "162"
+*
+* 64    ROLLS ROYCE RR-A [RR] 163
+*
+  FLAG<10,-1> = "RR-A"
+  FLAG<11,-1> = "[RR]"
+  FLAG<12,-1> = "163"
+  FLAG<13,-1> = "163"
+*
+  WRITE FLAG ON PRIVLIB.FILE,'FS.DEV.BOX.FLAG'
+*
+END
