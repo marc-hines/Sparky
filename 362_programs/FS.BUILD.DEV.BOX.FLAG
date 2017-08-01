@@ -417,7 +417,7 @@
 * 59  TOYCAN-A [TOYCAN] 158
 *
   FLAG<10,-1> = "TOYCAN-A"
-  FLAG<11,-1> = "TOYCAN]"
+  FLAG<11,-1> = "[TOYCAN]"
   FLAG<12,-1> = "158"
   FLAG<13,-1> = "158"
 *
