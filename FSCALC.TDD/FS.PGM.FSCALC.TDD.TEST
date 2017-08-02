@@ -15,69 +15,68 @@ EQU SVM TO CHAR(252)
   Month13Flag = '0'
   PRINTER.NAME = ''
 *
-  Mfr = '[ACURA]' ; FSNumber = 129 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[ACURACAN]' ; FSNumber = 130 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'HONDAMC' ; FSNumber = 131 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'IND' ; FSNumber = 132 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'LEASE' ; FSNumber = 133 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'MACK' ; FSNumber = 134 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'MASER' ; FSNumber = 135 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'MCLAR' ; FSNumber = 136 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'PACCAR' ; FSNumber = 137 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'REC' ; FSNumber = 138 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'SELTRK' ; FSNumber = 140 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'STD' ; FSNumber = 141 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'SUZCAN' ; FSNumber = 142 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = 'TRK' ; FSNumber = 143 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[AUDICAN]' ; FSNumber = 145 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[AUDI]' ; FSNumber = 146 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[BENCAN]' ; FSNumber = 147 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[BEN]' ; FSNumber = 148 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[BMWMC]' ; FSNumber = 149 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[BMW]' ; FSNumber = 151 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[CHRYCAN]' ; FSNumber = 152 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[CHRY]' ; FSNumber = 153 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[DTNA]' ; FSNumber = 154 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[FERRARI]' ; FSNumber = 155 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[FIAT]' ; FSNumber = 156 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[FORD]' ; FSNumber = 157 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[GMCAN]' ; FSNumber = 158 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[GM]' ; FSNumber = 159 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[HONDACAN]' ; FSNumber = 160 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[HONDA]' ; FSNumber = 161 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[HONDPCAN]' ; FSNumber = 162 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[HYUCAN]' ; FSNumber = 163 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[HYU]' ; FSNumber = 164 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[INFINCAN]' ; FSNumber = 165 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[INFIN]' ; FSNumber = 166 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[ISUZU]' ; FSNumber = 167 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[JAG]' ; FSNumber = 168 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[KIACAN]' ; FSNumber = 169 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[KIA]' ; FSNumber = 170 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[LAM]' ; FSNumber = 171 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[LEXCAN]' ; FSNumber = 172 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[LEX]' ; FSNumber = 173 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[LR]' ; FSNumber = 174 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MAZDACAN]' ; FSNumber = 175 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MAZDA]' ; FSNumber = 176 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MBCAN]' ; FSNumber = 177 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MB]' ; FSNumber = 178 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MITCAN]' ; FSNumber = 179 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[MIT]' ; FSNumber = 180 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[NISCAN]' ; FSNumber = 181 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[NIS]' ; FSNumber = 182 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[NSTAR]' ; FSNumber = 183 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[PORCAN]' ; FSNumber = 184 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[PORSCHE]' ; FSNumber = 185 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[SPRINT]' ; FSNumber = 186 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[SUBCAN]' ; FSNumber = 187 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[SUB]' ; FSNumber = 188 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[SUZ]' ; FSNumber = 189 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[TOYCAN]' ; FSNumber = 190 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[TOY]' ; FSNumber = 191 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[VOLVO]' ; FSNumber = 192 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[VWCAN]' ; FSNumber = 193 ; GOSUB CALC.AND.CHECK.ONE.MASTER
-  Mfr = '[VW]' ; FSNumber = 194 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'ACURA-A' ; Mfr = '[ACURA]' ; FSNumber = 100 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'ACURACAN-A' ; Mfr = '[ACURACAN]' ; FSNumber = 101 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'AUDI-A' ; Mfr = '[AUDI]' ; FSNumber = 102 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'AUDICAN-A' ; Mfr = '[AUDICAN]' ; FSNumber = 103 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'BEN-A' ; Mfr = '[BEN]' ; FSNumber = 104 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'BENCAN-A' ; Mfr = '[BENCAN]' ; FSNumber = 105 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'BMW-A' ; Mfr = '[BMW]' ; FSNumber = 106 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'BMWMC-A' ; Mfr = '[BMWMC]' ; FSNumber = 107 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'CHRY-A' ; Mfr = '[CHRY]' ; FSNumber = 108 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'CHRYCAN-A' ; Mfr = '[CHRYCAN]' ; FSNumber = 109 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'DTNA-A' ; Mfr = '[DTNA]' ; FSNumber = 110 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'FERRARI-A' ; Mfr = '[FERRARI]' ; FSNumber = 111 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'FIAT-A' ; Mfr = '[FIAT]' ; FSNumber = 112 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'FORD-A' ; Mfr = '[FORD]' ; FSNumber = 113 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'GM-A' ; Mfr = '[GM]' ; FSNumber = 114 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'GMCAN-A' ; Mfr = '[GMCAN]' ; FSNumber = 115 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HONDA-A' ; Mfr = '[HONDA]' ; FSNumber = 116 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HONDACAN-A' ; Mfr = '[HONDACAN]' ; FSNumber = 117 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HONDAMC-A' ; Mfr = 'HONDAMC' ; FSNumber = 118 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HONDPCAN-A' ; Mfr = '[HONDPCAN]' ; FSNumber = 119 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HYU-A' ; Mfr = '[HYU]' ; FSNumber = 120 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'HYUCAN-A' ; Mfr = '[HYUCAN]' ; FSNumber = 121 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'IND-A' ; Mfr = 'IND' ; FSNumber = 122 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'INFIN-A' ; Mfr = '[INFIN]' ; FSNumber = 123 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'INFINCAN-A' ; Mfr = '[INFINCAN]' ; FSNumber = 124 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'ISUZU-A' ; Mfr = '[ISUZU]' ; FSNumber = 125 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'JAG-A' ; Mfr = '[JAG]' ; FSNumber = 126 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'KIA-A' ; Mfr = '[KIA]' ; FSNumber = 127 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'KIACAN-A' ; Mfr = '[KIACAN]' ; FSNumber = 128 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'LAM-A' ; Mfr = '[LAM]' ; FSNumber = 129 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'LEX-A' ; Mfr = '[LEX]' ; FSNumber = 131 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'LEXCAN-A' ; Mfr = '[LEXCAN]' ; FSNumber = 132 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'LR-A' ; Mfr = '[LR]' ; FSNumber = 133 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MACK-A' ; Mfr = 'MACK' ; FSNumber = 134 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MASER-A' ; Mfr = 'MASER' ; FSNumber = 135 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MAZDA-A' ; Mfr = '[MAZDA]' ; FSNumber = 136 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MAZDACAN-A' ; Mfr = '[MAZDACAN]' ; FSNumber = 137 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MB-A' ; Mfr = '[MB]' ; FSNumber = 138 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MBCAN-A' ; Mfr = '[MBCAN]' ; FSNumber = 139 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MCLAR-A' ; Mfr = 'MCLAR' ; FSNumber = 140 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MIT-A' ; Mfr = '[MIT]' ; FSNumber = 141 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'MITCAN-A' ; Mfr = '[MITCAN]' ; FSNumber = 142 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'NIS-A' ; Mfr = '[NIS]' ; FSNumber = 143 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'NISCAN-A' ; Mfr = '[NISCAN]' ; FSNumber = 144 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'NSTAR-A' ; Mfr = '[NSTAR]' ; FSNumber = 145 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'PACCAR-A' ; Mfr = 'PACCAR' ; FSNumber = 146 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'PORSCHE-A' ; Mfr = '[PORSCHE]' ; FSNumber = 147 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'PORCAN-A' ; Mfr = '[PORCAN]' ; FSNumber = 148 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'REC-A' ; Mfr = 'REC' ; FSNumber = 149 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SELTRK-A' ; Mfr = 'SELTRK' ; FSNumber = 150 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SPRINT-A' ; Mfr = '[SPRINT]' ; FSNumber = 151 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'STD-A' ; Mfr = 'STD' ; FSNumber = 152 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SUB-A' ; Mfr = '[SUB]' ; FSNumber = 153 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SUBCAN-A' ; Mfr = '[SUBCAN]' ; FSNumber = 154 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SUZ-A' ; Mfr = '[SUZ]' ; FSNumber = 155 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'SUZCAN-A' ; Mfr = 'SUZCAN' ; FSNumber = 156 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'TOY-A' ; Mfr = '[TOY]' ; FSNumber = 157 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'TOYCAN-A' ; Mfr = '[TOYCAN]' ; FSNumber = 158 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'TRK-A' ; Mfr = 'TRK' ; FSNumber = 159 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'VOLVO-A' ; Mfr = '[VOLVO]' ; FSNumber = 160 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'VW-A' ; Mfr = '[VW]' ; FSNumber = 161 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Acct = 'VWCAN-A' ; Mfr = '[VWCAN]' ; FSNumber = 162 ; GOSUB CALC.AND.CHECK.ONE.MASTER
 *
   STOP
 *
@@ -85,7 +84,9 @@ EQU SVM TO CHAR(252)
 CALC.AND.CHECK.ONE.MASTER:
 ***************************
 *
-  PRINT 'Calcuating & checking: ':Mfr:' ':FSNumber
+  CALL SY.WANDER.SUB(Acct, "C", ERROR)
+*
+  PRINT 'Calcuating & checking: ':Acct:' ':Mfr:' ':FSNumber
 *
   CheckDataFileFlag = 0
   IF Mfr[1,1] EQ '[' THEN
@@ -124,20 +125,22 @@ CALC.AND.CHECK.ONE.MASTER:
     END
   END
 *
+  CALL SY.WANDER.SUB('ADP', "C", ERROR)
+*
   RETURN
 *
 *******************
 COMPARE.TWO.FILES:
 *******************
 *
-  OPEN ThisRuns TO ThisRunsFile ELSE
+  OPEN 'DICT', ThisRuns TO ThisRunsFile ELSE
     PRINT
     PRINT '*************************************************************'
     PRINT 'UNABLE TO OPEN FILE: ':ThisRuns
     PRINT '*************************************************************'
     STOP
   END
-  OPEN Original TO OriginalFile ELSE
+  OPEN 'DICT', Original TO OriginalFile ELSE
     PRINT
     PRINT '*************************************************************'
     PRINT 'UNABLE TO OPEN FILE: ':Original
@@ -164,7 +167,29 @@ COMPARE.TWO.FILES:
     END
     IF ThisRunsRec NE OriginalRec THEN
       BEGIN CASE
-        CASE ThisRunsRec<2>[3,6] EQ 'JUN17 '
+        CASE ThisRunsRec<2>[3,3] EQ 'JAN'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'FEB'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'MAR'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'APR'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'MAY'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'JUN'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'JUL'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'AUG'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'SEP'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'OCT'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'NOV'
+          NULL
+        CASE ThisRunsRec<2>[3,3] EQ 'DEC'
           NULL
         CASE ThisRunsRec EQ 'Q'
           NULL
@@ -172,8 +197,13 @@ COMPARE.TWO.FILES:
           NULL
         CASE ThisRunsRec EQ '' AND OriginalRec<2> = '0'
           NULL
-        *CASE ThisRunsRec<3> NE '' AND ThisRunsRec<3> NE '0' AND ThisRunsRec<3> EQ OriginalRec<2,1> AND NOT(NUM(ThisRunsRec<3>))
-        *  NULL
+        CASE CHANGE(ThisRunsRec,'$','') EQ CHANGE(OriginalRec,'$','')
+          PRINT
+          PRINT '*************************************************************'
+          PRINT CompareId:' FROM ':ThisRuns:' DOES NOT MATCH ':Original
+          PRINT ThisRunsRec
+          PRINT OriginalRec
+          PRINT '*************************************************************'
         CASE 1
           PRINT
           PRINT '*************************************************************'
