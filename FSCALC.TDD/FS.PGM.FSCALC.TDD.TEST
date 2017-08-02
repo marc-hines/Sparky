@@ -1,0 +1,214 @@
+* FS.PGM.FSCALC.TDD.TEST
+* Copyright 2017 CDK Global LLC. All rights reserved.
+* 02/13/2017 Hines,M
+*
+* Used to calculate every master as a TDD method of checking fscalc dev work
+* has not broken anything. 
+*
+*************************
+*
+EQU VM  TO CHAR(253)
+EQU AM  TO CHAR(254)
+EQU SVM TO CHAR(252)
+*
+  StmtEndDate = '18079' ; ** 30JUN17
+  Month13Flag = '0'
+  PRINTER.NAME = ''
+*
+  Mfr = '[ACURA]' ; FSNumber = 129 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[ACURACAN]' ; FSNumber = 130 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'HONDAMC' ; FSNumber = 131 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'IND' ; FSNumber = 132 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'LEASE' ; FSNumber = 133 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'MACK' ; FSNumber = 134 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'MASER' ; FSNumber = 135 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'MCLAR' ; FSNumber = 136 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'PACCAR' ; FSNumber = 137 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'REC' ; FSNumber = 138 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'SELTRK' ; FSNumber = 140 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'STD' ; FSNumber = 141 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'SUZCAN' ; FSNumber = 142 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = 'TRK' ; FSNumber = 143 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[AUDICAN]' ; FSNumber = 145 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[AUDI]' ; FSNumber = 146 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[BENCAN]' ; FSNumber = 147 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[BEN]' ; FSNumber = 148 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[BMWMC]' ; FSNumber = 149 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[BMW]' ; FSNumber = 151 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[CHRYCAN]' ; FSNumber = 152 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[CHRY]' ; FSNumber = 153 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[DTNA]' ; FSNumber = 154 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[FERRARI]' ; FSNumber = 155 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[FIAT]' ; FSNumber = 156 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[FORD]' ; FSNumber = 157 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[GMCAN]' ; FSNumber = 158 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[GM]' ; FSNumber = 159 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[HONDACAN]' ; FSNumber = 160 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[HONDA]' ; FSNumber = 161 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[HONDPCAN]' ; FSNumber = 162 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[HYUCAN]' ; FSNumber = 163 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[HYU]' ; FSNumber = 164 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[INFINCAN]' ; FSNumber = 165 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[INFIN]' ; FSNumber = 166 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[ISUZU]' ; FSNumber = 167 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[JAG]' ; FSNumber = 168 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[KIACAN]' ; FSNumber = 169 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[KIA]' ; FSNumber = 170 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[LAM]' ; FSNumber = 171 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[LEXCAN]' ; FSNumber = 172 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[LEX]' ; FSNumber = 173 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[LR]' ; FSNumber = 174 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MAZDACAN]' ; FSNumber = 175 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MAZDA]' ; FSNumber = 176 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MBCAN]' ; FSNumber = 177 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MB]' ; FSNumber = 178 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MITCAN]' ; FSNumber = 179 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[MIT]' ; FSNumber = 180 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[NISCAN]' ; FSNumber = 181 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[NIS]' ; FSNumber = 182 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[NSTAR]' ; FSNumber = 183 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[PORCAN]' ; FSNumber = 184 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[PORSCHE]' ; FSNumber = 185 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[SPRINT]' ; FSNumber = 186 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[SUBCAN]' ; FSNumber = 187 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[SUB]' ; FSNumber = 188 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[SUZ]' ; FSNumber = 189 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[TOYCAN]' ; FSNumber = 190 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[TOY]' ; FSNumber = 191 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[VOLVO]' ; FSNumber = 192 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[VWCAN]' ; FSNumber = 193 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+  Mfr = '[VW]' ; FSNumber = 194 ; GOSUB CALC.AND.CHECK.ONE.MASTER
+*
+  STOP
+*
+***************************
+CALC.AND.CHECK.ONE.MASTER:
+***************************
+*
+  PRINT 'Calcuating & checking: ':Mfr:' ':FSNumber
+*
+  CheckDataFileFlag = 0
+  IF Mfr[1,1] EQ '[' THEN
+    OPEN 'PRIVLIB' TO PRIVLIB.FILE THEN
+      WRITE '' ON PRIVLIB.FILE,'xmiss':FSNumber
+      CheckDataFileFlag = 1
+    END
+  END
+*
+  GOSUB CALC.ONE.MASTER
+*
+  ThisRuns = 'FS-WORK-FILE-':FSNumber
+  Original = 'FS-WORK-FILE-BASE-':FSNumber
+  GOSUB COMPARE.TWO.FILES
+  IF CheckDataFileFlag THEN
+    ThisRuns = 'FS-':Mfr:'-DATA-':FSNumber
+    Original = 'FS-':Mfr:'-DATA-BASE-':FSNumber
+    GOSUB COMPARE.TWO.FILES
+  END
+*
+  OPEN 'USERLIB' TO USERLIB.FILE THEN
+    READ OriginalFsErrorList FROM USERLIB.FILE,'FS-':FSNumber:'-OUTPUT' ELSE
+      OriginalFsErrorList = '-- ORIGINAL NOT ON FILE! --'
+    END
+    IF FsErrorList NE OriginalFsErrorList THEN
+      PRINT
+      PRINT '*************************************************************'
+      PRINT 'Edit checks for ':Mfr:' ':FSNumber:' DO NOT MATCH!!!'
+      PRINT '*************************************************************'
+      PRINT 'Original:'
+      PRINT OriginalFsErrorList
+      PRINT
+      PRINT 'From this run:'
+      PRINT FsErrorList
+      PRINT
+    END
+  END
+*
+  RETURN
+*
+*******************
+COMPARE.TWO.FILES:
+*******************
+*
+  OPEN ThisRuns TO ThisRunsFile ELSE
+    PRINT
+    PRINT '*************************************************************'
+    PRINT 'UNABLE TO OPEN FILE: ':ThisRuns
+    PRINT '*************************************************************'
+    STOP
+  END
+  OPEN Original TO OriginalFile ELSE
+    PRINT
+    PRINT '*************************************************************'
+    PRINT 'UNABLE TO OPEN FILE: ':Original
+    PRINT '*************************************************************'
+    STOP
+  END
+*
+  ItemCount = 0
+  SELECT ThisRunsFile
+  LOOP WHILE READNEXT CompareId DO
+    READ ThisRunsRec FROM ThisRunsFile, CompareId ELSE
+      PRINT
+      PRINT '*************************************************************'
+      PRINT 'UNABLE TO READ: ':CompareId:' FROM ':ThisRuns
+      PRINT '*************************************************************'
+      STOP
+    END
+    READ OriginalRec FROM OriginalFile, CompareId ELSE
+      PRINT
+      PRINT '*************************************************************'
+      PRINT 'UNABLE TO READ: ':CompareId:' FROM ':Original
+      PRINT '*************************************************************'
+      STOP
+    END
+    IF ThisRunsRec NE OriginalRec THEN
+      BEGIN CASE
+        CASE ThisRunsRec<2>[3,6] EQ 'JUN17 '
+          NULL
+        CASE ThisRunsRec EQ 'Q'
+          NULL
+        CASE ThisRunsRec EQ '' AND OriginalRec<3> = '0'
+          NULL
+        CASE ThisRunsRec EQ '' AND OriginalRec<2> = '0'
+          NULL
+        *CASE ThisRunsRec<3> NE '' AND ThisRunsRec<3> NE '0' AND ThisRunsRec<3> EQ OriginalRec<2,1> AND NOT(NUM(ThisRunsRec<3>))
+        *  NULL
+        CASE 1
+          PRINT
+          PRINT '*************************************************************'
+          PRINT CompareId:' FROM ':ThisRuns:' DOES NOT MATCH ':Original
+          PRINT ThisRunsRec
+          PRINT OriginalRec
+          PRINT '*************************************************************'
+          STOP
+      END CASE
+    END
+    ItemCount = ItemCount + 1
+  REPEAT
+*
+  IF ItemCount EQ 0 THEN
+    PRINT
+    PRINT '*************************************************************'
+    PRINT 'NO ITEMS WERE FOUND IN ':ThisRuns
+    PRINT '*************************************************************'
+    STOP
+  END
+*
+  RETURN
+*
+*****************
+CALC.ONE.MASTER:
+*****************
+*
+  FsErrorList = ""
+  DATA FSNumber
+  DATA StmtEndDate
+  DATA Month13Flag 
+  DATA PRINTER.NAME
+  PERFORM "FS.FST.CALC.SHELL" CAPTURING FsErrorList SETTING ERRMSG
+*
+  RETURN
+*
+END
+*
