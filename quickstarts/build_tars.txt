@@ -1,0 +1,2411 @@
+
+cd /Users/hinesm/gitrepos/FINSTMT/qa_cora_gl/
+
+cd QS-_kACURA_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fNDOC
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+cd QS-_kACURA_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
+cd ..
+
+cd QS-_kACURACAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+cd QS-_kACURACAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/ACURACAN.tar --exclude=".*" -s /^QS-_kACURACAN_t_f// QS-_kACURACAN_t_f*
+cd ..
+
+cd QS-_kAUDI_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fNDOC
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+cd QS-_kAUDI_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/AUDI.tar --exclude=".*" -s /^QS-_kAUDI_t_f// QS-_kAUDI_t_f*
+cd ..
+
+cd QS-_kAUDICAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+cd QS-_kAUDICAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/AUDICAN.tar --exclude=".*" -s /^QS-_kAUDICAN_t_f// QS-_kAUDICAN_t_f*
+cd ..
+
+cd QS-_kBEN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+cd QS-_kBEN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/BEN.tar --exclude=".*" -s /^QS-_kBEN_t_f// QS-_kBEN_t_f*
+cd ..
+
+cd QS-_kBENCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+cd QS-_kBENCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/BENCAN.tar --exclude=".*" -s /^QS-_kBENCAN_t_f// QS-_kBENCAN_t_f*
+cd ..
+
+cd QS-_kBMW_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fNDOC
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+cd QS-_kBMW_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/BMW.tar --exclude=".*" -s /^QS-_kBMW_t_f// QS-_kBMW_t_f*
+cd ..
+
+cd QS-_kBMWMC_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fNDOC
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+cd QS-_kBMWMC_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/BMWMC.tar --exclude=".*" -s /^QS-_kBMWMC_t_f// QS-_kBMWMC_t_f*
+cd ..
+
+cd QS-_kCHRY_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fNDOC
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+cd QS-_kCHRY_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/CHRY.tar --exclude=".*" -s /^QS-_kCHRY_t_f// QS-_kCHRY_t_f*
+cd ..
+
+cd QS-_kDTNA_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fNDOC
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+cd QS-_kDTNA_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/DTNA.tar --exclude=".*" -s /^QS-_kDTNA_t_f// QS-_kDTNA_t_f*
+cd ..
+
+cd QS-_kFERRARI_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fNDOC
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+cd QS-_kFERRARI_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/FERRARI.tar --exclude=".*" -s /^QS-_kFERRARI_t_f// QS-_kFERRARI_t_f*
+cd ..
+
+cd QS-_kFIAT_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fNDOC
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+cd QS-_kFIAT_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/FIAT.tar --exclude=".*" -s /^QS-_kFIAT_t_f// QS-_kFIAT_t_f*
+cd ..
+
+cd QS-_kFORD_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fNDOC
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+cd QS-_kFORD_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/FORD.tar --exclude=".*" -s /^QS-_kFORD_t_f// QS-_kFORD_t_f*
+cd ..
+
+cd QS-_kGENESIS_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fNDOC
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+cd QS-_kGENESIS_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/GENESIS.tar --exclude=".*" -s /^QS-_kGENESIS_t_f// QS-_kGENESIS_t_f*
+cd ..
+
+cd QS-_kGM_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fNDOC
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+cd QS-_kGM_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/GM.tar --exclude=".*" -s /^QS-_kGM_t_f// QS-_kGM_t_f*
+cd ..
+
+cd QS-_kGMCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+cd QS-_kGMCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/GMCAN.tar --exclude=".*" -s /^QS-_kGMCAN_t_f// QS-_kGMCAN_t_f*
+cd ..
+
+cd QS-_kHONDA_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fNDOC
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+cd QS-_kHONDA_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/HONDA.tar --exclude=".*" -s /^QS-_kHONDA_t_f// QS-_kHONDA_t_f*
+cd ..
+
+cd QS-_kHYU_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fNDOC
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+cd QS-_kHYU_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/HYU.tar --exclude=".*" -s /^QS-_kHYU_t_f// QS-_kHYU_t_f*
+cd ..
+
+cd QS-_kINFIN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+cd QS-_kINFIN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/INFIN.tar --exclude=".*" -s /^QS-_kINFIN_t_f// QS-_kINFIN_t_f*
+cd ..
+
+cd QS-_kINFINCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+cd QS-_kINFINCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/INFINCAN.tar --exclude=".*" -s /^QS-_kINFINCAN_t_f// QS-_kINFINCAN_t_f*
+cd ..
+
+cd QS-_kISUZU_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fNDOC
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+cd QS-_kISUZU_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/ISUZU.tar --exclude=".*" -s /^QS-_kISUZU_t_f// QS-_kISUZU_t_f*
+cd ..
+
+cd QS-_kJAG_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fNDOC
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+cd QS-_kJAG_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/JAG.tar --exclude=".*" -s /^QS-_kJAG_t_f// QS-_kJAG_t_f*
+cd ..
+
+cd QS-_kKIA_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fNDOC
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+cd QS-_kKIA_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/KIA.tar --exclude=".*" -s /^QS-_kKIA_t_f// QS-_kKIA_t_f*
+cd ..
+
+cd QS-_kKIACAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+cd QS-_kKIACAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/KIACAN.tar --exclude=".*" -s /^QS-_kKIACAN_t_f// QS-_kKIACAN_t_f*
+cd ..
+
+cd QS-_kLAM_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fNDOC
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+cd QS-_kLAM_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/LAM.tar --exclude=".*" -s /^QS-_kLAM_t_f// QS-_kLAM_t_f*
+cd ..
+
+cd QS-_kLEX_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fNDOC
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+cd QS-_kLEX_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/LEX.tar --exclude=".*" -s /^QS-_kLEX_t_f// QS-_kLEX_t_f*
+cd ..
+
+cd QS-_kLEXCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+cd QS-_kLEXCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/LEXCAN.tar --exclude=".*" -s /^QS-_kLEXCAN_t_f// QS-_kLEXCAN_t_f*
+cd ..
+
+cd QS-_kLR_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fNDOC
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+cd QS-_kLR_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/LR.tar --exclude=".*" -s /^QS-_kLR_t_f// QS-_kLR_t_f*
+cd ..
+
+cd QS-_kMAZDA_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+cd QS-_kMAZDA_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MAZDA.tar --exclude=".*" -s /^QS-_kMAZDA_t_f// QS-_kMAZDA_t_f*
+cd ..
+
+cd QS-_kMAZDACAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+cd QS-_kMAZDACAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MAZDACAN.tar --exclude=".*" -s /^QS-_kMAZDACAN_t_f// QS-_kMAZDACAN_t_f*
+cd ..
+
+cd QS-_kMB_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+cd QS-_kMB_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MB.tar --exclude=".*" -s /^QS-_kMB_t_f// QS-_kMB_t_f*
+cd ..
+
+cd QS-_kMBCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+cd QS-_kMBCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MBCAN.tar --exclude=".*" -s /^QS-_kMBCAN_t_f// QS-_kMBCAN_t_f*
+cd ..
+
+cd QS-_kMIT_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+cd QS-_kMIT_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MIT.tar --exclude=".*" -s /^QS-_kMIT_t_f// QS-_kMIT_t_f*
+cd ..
+
+cd QS-_kMITCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+cd QS-_kMITCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MITCAN.tar --exclude=".*" -s /^QS-_kMITCAN_t_f// QS-_kMITCAN_t_f*
+cd ..
+
+cd QS-_kNIS_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fNDOC
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+cd QS-_kNIS_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/NIS.tar --exclude=".*" -s /^QS-_kNIS_t_f// QS-_kNIS_t_f*
+cd ..
+
+cd QS-_kNISCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+cd QS-_kNISCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/NISCAN.tar --exclude=".*" -s /^QS-_kNISCAN_t_f// QS-_kNISCAN_t_f*
+cd ..
+
+cd QS-_kNSTAR_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fNDOC
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+cd QS-_kNSTAR_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/NSTAR.tar --exclude=".*" -s /^QS-_kNSTAR_t_f// QS-_kNSTAR_t_f*
+cd ..
+
+cd QS-_kPORCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+cd QS-_kPORCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/PORCAN.tar --exclude=".*" -s /^QS-_kPORCAN_t_f// QS-_kPORCAN_t_f*
+cd ..
+
+cd QS-_kPORSCHE_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fNDOC
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+cd QS-_kPORSCHE_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/PORSCHE.tar --exclude=".*" -s /^QS-_kPORSCHE_t_f// QS-_kPORSCHE_t_f*
+cd ..
+
+cd QS-_kRR_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fNDOC
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+cd QS-_kRR_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/RR.tar --exclude=".*" -s /^QS-_kRR_t_f// QS-_kRR_t_f*
+cd ..
+
+cd QS-_kSPRINT_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fNDOC
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+cd QS-_kSPRINT_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SPRINT.tar --exclude=".*" -s /^QS-_kSPRINT_t_f// QS-_kSPRINT_t_f*
+cd ..
+
+cd QS-_kSUB_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fNDOC
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+cd QS-_kSUB_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SUB.tar --exclude=".*" -s /^QS-_kSUB_t_f// QS-_kSUB_t_f*
+cd ..
+
+cd QS-_kSUBCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+cd QS-_kSUBCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SUBCAN.tar --exclude=".*" -s /^QS-_kSUBCAN_t_f// QS-_kSUBCAN_t_f*
+cd ..
+
+cd QS-_kSUZ_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fNDOC
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+cd QS-_kSUZ_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SUZ.tar --exclude=".*" -s /^QS-_kSUZ_t_f// QS-_kSUZ_t_f*
+cd ..
+
+cd QS-_kTOY_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fNDOC
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+cd QS-_kTOY_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/TOY.tar --exclude=".*" -s /^QS-_kTOY_t_f// QS-_kTOY_t_f*
+cd ..
+
+cd QS-_kTOYCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+cd QS-_kTOYCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/TOYCAN.tar --exclude=".*" -s /^QS-_kTOYCAN_t_f// QS-_kTOYCAN_t_f*
+cd ..
+
+cd QS-_kVOLVO_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fNDOC
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+cd QS-_kVOLVO_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/VOLVO.tar --exclude=".*" -s /^QS-_kVOLVO_t_f// QS-_kVOLVO_t_f*
+cd ..
+
+cd QS-_kVW_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fNDOC
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+cd QS-_kVW_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/VW.tar --exclude=".*" -s /^QS-_kVW_t_f// QS-_kVW_t_f*
+cd ..
+
+cd QS-_kVWCAN_t_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.COA
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.PCL
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fNDOC
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+cd QS-_kVWCAN_t_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/VWCAN.tar --exclude=".*" -s /^QS-_kVWCAN_t_f// QS-_kVWCAN_t_f*
+cd ..
+
+cd QS-HONDAMC_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.COA
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.PCL
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fNDOC
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+cd QS-HONDAMC_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/HONDAMC.tar --exclude=".*" -s /^QS-HONDAMC_f// QS-HONDAMC_f*
+cd ..
+
+cd QS-IND_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.COA
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.PCL
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fNDOC
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+cd QS-IND_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/IND.tar --exclude=".*" -s /^QS-IND_f// QS-IND_f*
+cd ..
+
+cd QS-MACK_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.COA
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fNDOC
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+cd QS-MACK_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MACK.tar --exclude=".*" -s /^QS-MACK_f// QS-MACK_f*
+cd ..
+
+cd QS-MASER_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.COA
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fNDOC
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+cd QS-MASER_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MASER.tar --exclude=".*" -s /^QS-MASER_f// QS-MASER_f*
+cd ..
+
+cd QS-MCLAR_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.COA
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.PCL
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fNDOC
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+cd QS-MCLAR_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/MCLAR.tar --exclude=".*" -s /^QS-MCLAR_f// QS-MCLAR_f*
+cd ..
+
+cd QS-PACCAR_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.COA
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.PCL
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fNDOC
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+cd QS-PACCAR_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/PACCAR.tar --exclude=".*" -s /^QS-PACCAR_f// QS-PACCAR_f*
+cd ..
+
+cd QS-REC_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.COA
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.PCL
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fNDOC
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+cd QS-REC_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/REC.tar --exclude=".*" -s /^QS-REC_f// QS-REC_f*
+cd ..
+
+cd QS-SELTRK_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.COA
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fNDOC
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+cd QS-SELTRK_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SELTRK.tar --exclude=".*" -s /^QS-SELTRK_f// QS-SELTRK_f*
+cd ..
+
+cd QS-STD_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.COA
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.PCL
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fNDOC
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+cd QS-STD_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/STD.tar --exclude=".*" -s /^QS-STD_f// QS-STD_f*
+cd ..
+
+cd QS-SUZCAN_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.COA
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.PCL
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fNDOC
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+cd QS-SUZCAN_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/SUZCAN.tar --exclude=".*" -s /^QS-SUZCAN_f// QS-SUZCAN_f*
+cd ..
+
+cd QS-TRK_fACR-GL-ACCTS
+tar -cf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.CIB.SETUP
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.COA
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.COA.GRP
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.DEPT
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.DGL.SETUP
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.PCL
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.RPT.SETUP
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.SALE.CHN
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fGL.SCHED.SETUP
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fNDOC
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fPRIVLIB
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+cd QS-TRK_fPROD-FILE
+tar -rf /Users/hinesm/Downloads/TRK.tar --exclude=".*" -s /^QS-TRK_f// QS-TRK_f*
+cd ..
+
+
+
+gzip /Users/hinesm/Downloads/*.tar --best
+
+
+
+
+
