@@ -1,6 +1,26 @@
 
 cd /Users/hinesm/gitrepos/FINSTMT/qa_cora_gl/
 
+
+cd CAR-DESC
+tar -cf /Users/hinesm/Downloads/CAR-DESC.tar --exclude=".*" CAR-DESC*
+cd ..
+
+cd CAR-DESC
+tar -cf /Users/hinesm/Downloads/D_CAR-DESC.tar "A-3"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "A1"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "A3"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "ABBR"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "ADPc-FORMAT"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "ID"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "MAKE"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "MAKE-ABBR"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "MANUF"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "MODEL"
+tar -rf /Users/hinesm/Downloads/D_CAR-DESC.tar "MODEL-ABBR"
+cd ..
+
+
 cd QS-_kACURA_t_fACR-GL-ACCTS
 tar -cf /Users/hinesm/Downloads/ACURA.tar --exclude=".*" -s /^QS-_kACURA_t_f// QS-_kACURA_t_f*
 cd ..
